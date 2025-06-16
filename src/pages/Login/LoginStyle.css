@@ -12,6 +12,58 @@
 .contenedor-dec-form {
   align-items: center;
 }
+/* NUEVA CLASE: contenedor general */
+
+.login-container-custom {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* NUEVA CLASE: imagen en el lado izquierdo */
+
+.login-image-custom {
+    width: 50%;
+    height: 100vh;
+}
+
+.login-image-custom img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* NUEVA CLASE: formulario en el lado derecho centrado */
+
+.login-form-side {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+
+/* Reutilizamos tu clase existente */
+
+.form-login {
+    width: 80%;
+    max-width: 400px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 6px 6px hsl(0deg 0% 0% / 0.3);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Reutilizamos tu clase existente */
 
 .titulo-login {
   color: var(--color-base);
@@ -20,12 +72,33 @@
   align-content: center;
   background-color: var(--color-base-2);
   border-radius: 5px;
+    /* color: var(--color-base, #333);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem; */
 }
 
-.decoracion {
-  width: 48%;
-}
+
+/* Reutilizamos tu clase existente */
 
 .input-formulario {
-  margin-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+/* Botón de ejemplo */
+
+.boton-n1 {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.boton-n1:hover {
+    background-color: #0056b3;
 }
