@@ -6,11 +6,20 @@
   box-shadow: 0 6px 6px hsl(0deg 0% 0% / 0.3);
   padding: 1rem;
   margin: 1% 4%;
+  gap: 1.3rem;
+}
+
+.contenedor-dec-form {
+  align-items: center;
 }
 
 .titulo-login {
   color: var(--color-base);
   font-size: 3rem;
+  height: 10rem;
+  align-content: center;
+  background-color: var(--color-base-2);
+  border-radius: 5px;
 }
 
 .decoracion {
