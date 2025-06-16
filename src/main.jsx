@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home/Home.jsx';
-import Login from './components/auth/login.jsx';
+import Login from './pages/Login/Login.jsx';
 import Register from './components/auth/register.jsx';
 
 createRoot(document.getElementById('root')).render(
