@@ -223,23 +223,22 @@ body, html, #root {
     text-align: center;
 }
 
-.flex-column-center {
+.flex-column {
     display: flex;
     flex-direction: column;
+}
+
+.flex-center {
     justify-content: center;
-    text-align: center;
 }
 
 .felx-btwn {
-    display: flex;
     justify-content: space-between;
 }
 .felx-around {
-    display: flex;
     justify-content: space-around;
 }
 .felx-evenly {
-    display: flex;
     justify-content: space-evenly;
 }
 
