@@ -1,0 +1,22 @@
+.form-login {
+  height: 90%;
+  width: 50%;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 6px 6px hsl(0deg 0% 0% / 0.3);
+  padding: 1rem;
+  margin: 1% 4%;
+}
+
+.titulo-login {
+  color: var(--color-base);
+  font-size: 3rem;
+}
+
+.decoracion {
+  width: 48%;
+}
+
+.input-formulario {
+  margin-bottom: 1rem;
+}
