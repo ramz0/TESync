@@ -1,6 +1,7 @@
 :root {
     --color-base: #199490;
     --color-base-2: rgb(32, 40, 45);
+    --color-base-3: #19949030;
     --color-borde: rgb(32, 33, 34);
     --color-fondo: linear-gradient(90deg,rgba(232, 255, 255, 1) 0%, rgba(217, 255, 235, 1) 50%, rgba(255, 255, 212, 1) 100%);
 
@@ -242,6 +243,10 @@ body, html, #root {
     justify-content: space-evenly;
 }
 
+.sombra {
+    box-shadow: 0 6px 6px hsl(0deg 0% 0% / 0.3);
+}
+
 .cuerpo-base {
     background-color: whitesmoke;
     border-radius: 15px;
@@ -249,7 +254,6 @@ body, html, #root {
     height: 95%;
     box-sizing: border-box;
     box-shadow: 0 6px 6px hsl(0deg 0% 0% / 0.3);
-
 }
 
 .boton-n1 {
