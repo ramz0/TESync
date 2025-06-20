@@ -1,0 +1,39 @@
+:root {
+  --color-listo: rgb(0, 128, 83);
+  --color-pendiente: rgb(255, 0, 68);
+  --borde-btn: 0.5rem;
+  --padding-btn-m-g: 0.8rem;
+  --margin-contenedor-btn-m-g: 1rem;
+}
+
+
+.btn-m-g {
+  border-radius: var(--borde-btn);
+  padding: var(--padding-btn-m-g);
+  border: 5px solid rgb(223, 223, 223);
+}
+
+.contenedor-btn-m-g-listo {
+  background-color: var(--color-listo);
+}
+
+.contenedor-btn-m-g-pendiente {
+  background-color: var(--color-pendiente);
+}
+.btn-m-g-listo {
+  background-color: var(--color-listo);
+  margin: var(--margin-contenedor-btn-m-g);
+}
+
+.btn-m-g-pendiente {
+  background-color: var(--color-pendiente);
+  margin: var(--margin-contenedor-btn-m-g);
+}
+
+.btn-txt-materia {
+  color: white;
+}
+
+.btn-txt-grupo {
+  color: rgb(181, 181, 181);
+}
