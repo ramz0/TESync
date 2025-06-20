@@ -1,0 +1,18 @@
+:root {
+  --color-exportar-excel: #4CAF50;
+  --color-exportar-excel-texto: white;
+}
+
+.btn-exportar-excel {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.8rem 1rem;
+  background-color: var(--color-exportar-excel);
+  color: var(--color-exportar-excel-texto);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+  /* z-index: 10; */
+}
