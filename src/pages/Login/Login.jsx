@@ -28,8 +28,8 @@ export default function Login() {
         <form onSubmit={handleLogin} className='form-login flex-column'>
           <h1 className='titulo-login'>Iniciar Sesión</h1>
 
-        <Input icono={faUser} tipo={"email"} textoInterno={"Usuario."} hacer={e => setEmail(e.target.value)}></Input>
-        <Input icono={faKey} tipo={"password"} textoInterno={"Contraseña."} hacer={e => setPassword(e.target.value)}></Input>
+        <Input icono={faUser} tipo={"email"} textoInterno={"Usuario."} hacer={e => setEmail(e.target.value)} />
+        <Input icono={faKey} tipo={"password"} textoInterno={"Contraseña."} hacer={e => setPassword(e.target.value)} />
         
         <Link to="/profesor" className='boton-n1'>
           <button>Entrar</button>
