@@ -5,8 +5,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Home from './pages/Home/Home.jsx';
 import Login from './pages/Login/Login.jsx';
-import Register from './pages/Register/Register.jsx';
+import Register from './components/auth/register.jsx';
 import Profesor from './pages/Profesor/Profesor.jsx';
+import Dashboard from './pages/dashboard/Dashboard.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -16,6 +17,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profesor" element={<Profesor />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
