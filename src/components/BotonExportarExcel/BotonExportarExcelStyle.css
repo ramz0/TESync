@@ -1,18 +1,26 @@
 :root {
   --color-exportar-excel: #4CAF50;
   --color-exportar-excel-texto: white;
+  --btn-borde: 0.5rem;
 }
 
 .btn-exportar-excel {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  padding: 0.8rem 1rem;
+  padding: 0rem 0rem 0rem 1rem;
   background-color: var(--color-exportar-excel);
   color: var(--color-exportar-excel-texto);
   border: none;
-  border-radius: 0.5rem;
+  border-radius: var(--btn-borde);
   cursor: pointer;
   font-weight: bold;
-  /* z-index: 10; */
+}
+
+.btn-icono-exportar {
+  background-color: var(--color-exportar-excel-texto);
+  color: var(--color-exportar-excel);
+  border-radius: 0rem var(--btn-borde) var(--btn-borde) 0rem;
+  padding: 1rem;
+  margin-left: 1rem;
 }

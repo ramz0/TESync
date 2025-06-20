@@ -50,8 +50,10 @@ const BotonExportarExcel = ({datosParaExcel, icono, texto}) => {
       onClick={exportarExcel()} 
       title="Exportar calificaciones a Excel"
     >
-      <FontAwesomeIcon icon={icono} />
       {texto}
+      <span className='btn-icono-exportar'>
+        <FontAwesomeIcon icon={icono} />
+      </span>
     </button>
   )
 }
