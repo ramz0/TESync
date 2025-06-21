@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Inforcard.css';
+import './InforCard.css';
 
 function InfoCard() {
   const [rol, setRol] = useState('');
@@ -13,11 +13,11 @@ function InfoCard() {
   }, []);
 
   if (!rol || !usuario) {
-    return <div className="infocard">Cargando información...</div>;
+    return <div className="InfoCard">Cargando información...</div>;
   }
 
   return (
-    <div className="infocard">
+    <div className="InfoCard">
       <h2>Bienvenido {usuario.nombre}</h2>
 
       {rol === 'profesor' && (
