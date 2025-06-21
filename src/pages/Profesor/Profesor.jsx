@@ -142,8 +142,8 @@ const Profesor = () => {
     <div className='fondo-Profesor'>
       <Dashboard></Dashboard>
       <InfoCard></InfoCard>
-      <BotonExportarExcel datosParaExcel = {datos} icono={faFileExcel} texto={"Exportar Calificaciones"} />
 
+      <BotonExportarExcel datosParaExcel = {datos} icono={faFileExcel} texto={"Exportar Calificaciones"} />
       <TablaProfesores/>
 
       {datos.map((grupo, grupoIndex) => (

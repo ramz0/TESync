@@ -5,15 +5,11 @@
 }
 
 .btn-exportar-excel {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
   padding: 0rem 0rem 0rem 1rem;
   background-color: var(--color-exportar-excel);
   color: var(--color-exportar-excel-texto);
   border: none;
   border-radius: var(--btn-borde);
-  cursor: pointer;
   font-weight: bold;
 }
 
