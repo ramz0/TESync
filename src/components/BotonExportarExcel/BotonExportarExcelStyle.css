@@ -8,8 +8,9 @@
   padding: 0rem 0rem 0rem 1rem;
   background-color: var(--color-exportar-excel);
   color: var(--color-exportar-excel-texto);
-  border: none;
+  border: 1px solid black;
   border-radius: var(--btn-borde);
+  margin: 1rem;
   font-weight: bold;
 }
 
