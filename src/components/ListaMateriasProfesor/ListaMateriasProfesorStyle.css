@@ -1,0 +1,41 @@
+
+.descripcion-grupo {
+  background-color: rgba(240, 248, 255, 0.627);
+  color: var(--color-base);
+  padding: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.contenedor-info-grupo {
+  flex: 1;
+}
+
+.info-grupo {
+  background-color: var(--color-base-2);
+  padding: 0.8rem;
+  border-top-left-radius: 1rem;
+}
+
+.grafica-grupo {
+  padding: 3rem;
+}
+
+.lista-materias {
+  padding: 1rem;
+  gap: 0.5rem;
+  overflow-y: auto;
+  height: 50vh;
+  flex-shrink: 0;
+}
+
+.lista-materias > * {
+  flex-shrink: 0;
+}
+
+.lista-materias::-webkit-scrollbar {
+  width: 0.8rem;
+}
+.lista-materias::-webkit-scrollbar-thumb {
+  background-color: var(--color-base-2);
+  border-radius: 4px;
+}
