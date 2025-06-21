@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import * as XLSX from 'xlsx';
-import { saveAs } from 'file-saver';
+import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
+
+import Dashboard from '../dashboard/Dashboard';
+import BotonExportarExcel from '../../components/BotonExportarExcel/BotonExportarExcel';
 
 const initialData = [
   {
@@ -84,7 +86,7 @@ const todasCalificacionesCompletas = (materias) =>
     materia.calificaciones.every((cal) => cal !== null && cal !== undefined)
   );
 
-export default function Profesor() {
+const Profesor = () => {
   const [datos, setDatos] = useState(initialData);
   const [resultados, setResultados] = useState({});
 
@@ -132,66 +134,12 @@ export default function Profesor() {
     }));
   };
 
-  const exportarExcel = () => {
-    const rows = [];
-    datos.forEach((grupo) => {
-      grupo.alumnos.forEach((alumno) => {
-        alumno.materias.forEach((materia) => {
-          const notas = materia.calificaciones.filter((c) => c !== null && c !== undefined);
-          const promedio = notas.length
-            ? notas.reduce((a, b) => a + b, 0) / notas.length
-            : 0;
-
-          let estado = '';
-          if (promedio >= 7) estado = 'Aprobó';
-          else if (promedio < 6) estado = 'Reprobó';
-          else estado = 'Regular';
-
-          rows.push({
-            Grupo: grupo.grupo,
-            Alumno: alumno.nombre,
-            Materia: materia.nombre,
-            'Calificación Unidad 1': materia.calificaciones[0] ?? '',
-            'Calificación Unidad 2': materia.calificaciones[1] ?? '',
-            'Calificación Unidad 3': materia.calificaciones[2] ?? '',
-            'Calificación Final': promedio.toFixed(2),
-            Estado: estado,
-          });
-        });
-      });
-    });
-
-    const worksheet = XLSX.utils.json_to_sheet(rows);
-    const workbook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(workbook, worksheet, 'Calificaciones');
-
-    const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-    const dataBlob = new Blob([excelBuffer], { type: 'application/octet-stream' });
-    saveAs(dataBlob, 'calificaciones.xlsx');
-  };
+  
 
   return (
-    <div style={{ padding: '10px', fontFamily: 'Arial', position: 'relative' }}>
-      <button
-        onClick={exportarExcel}
-        style={{
-          position: 'absolute',
-          top: '10px',
-          right: '10px',
-          padding: '6px 12px',
-          backgroundColor: '#4CAF50',
-          color: 'white',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: 'pointer',
-          fontWeight: 'bold',
-          zIndex: 10,
-        }}
-        title="Exportar calificaciones a Excel"
-      >
-        Exportar a Excel
-      </button>
-
+    <div>
+      <Dashboard></Dashboard>
+      <BotonExportarExcel datosParaExcel = {datos} icono={faFileExcel} texto={"Exportar Calificaciones"} />
       {datos.map((grupo, grupoIndex) => (
         <div key={grupo.grupo} style={{ marginBottom: '20px' }}>
           <h2 style={{ marginBottom: '6px', fontSize: '1.1rem', fontWeight: 'bold' }}>
@@ -343,3 +291,5 @@ export default function Profesor() {
     </div>
   );
 }
+
+export default Profesor;

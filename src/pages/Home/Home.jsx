@@ -46,7 +46,7 @@ export default function Home() {
             </h2>
       </span>
 
-      <div className='flex-row-center felx-evenly'>
+      <div className='flex-row-center flex-evenly'>
         <Link to="/login">
           <button className='boton-n1'>
             Iniciar Sesión

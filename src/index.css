@@ -240,7 +240,7 @@ body, html, #root {
 .felx-around {
     justify-content: space-around;
 }
-.felx-evenly {
+.flex-evenly {
     justify-content: space-evenly;
 }
 

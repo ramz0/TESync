@@ -1,0 +1,36 @@
+import { useEffect, useState } from 'react';
+import './TopBar.css';
+
+export default function TopBar() {
+  const [usuario, setUsuario] = useState(null);
+
+  useEffect(() => {
+    const usuarioGuardado = localStorage.getItem('usuario');
+    if (usuarioGuardado) {
+      setUsuario(JSON.parse(usuarioGuardado));
+    }
+  }, []);
+
+  return (
+    <header className="topbar">
+      <div className="topbar-left">
+        <span className="logo flex-row-center">
+          <p className='l-tes'>Tes</p>
+          <p>ync</p>
+          </span>
+        <nav className="nav-links">
+          <a href="/dashboard">Inicio</a>
+          <a href="/materias">Materias</a>
+          <a href="/perfil">Perfil</a>
+        </nav>
+      </div>
+
+      {usuario && (
+        <div className="topbar-right">
+          <span>{usuario.nombre}</span>
+          <span>{usuario.correo}</span>
+        </div>
+      )}
+    </header>
+  );
+}
