@@ -6,6 +6,9 @@
   --margin-contenedor-btn-m-g: 0.2rem;
 }
 
+.btn-principal {
+  background-color: transparent;
+}
 
 .btn-m-g {
   border-radius: var(--borde-btn);

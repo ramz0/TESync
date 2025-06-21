@@ -3,7 +3,7 @@ import "./GlareHover.css";
 const GlareHover = ({
   width = "auto",
   height = "auto",
-  background = "#000",
+  background = "transparent",
   borderRadius = "10px",
   borderColor = "#333",
   children,

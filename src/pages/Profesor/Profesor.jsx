@@ -1,5 +1,6 @@
 import './ProfesorStyle.css';
 import { useState } from 'react';
+
 import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
 import CardAlumno from '../../components/CardAlumno/CardAlumno.jsx';
 import ListaMateriasProfesor from '../../components/ListaMateriasProfesor/ListaMateriasProfesor.jsx';
@@ -85,36 +86,36 @@ const initialData = [
   },
 ];
 
+
 const Profesor = () => {
   const [datos] = useState(initialData);
   const [mostrarPerfil, setMostrarPerfil] = useState(false);
+  const [editarCalificaciones, setEditiarCalificaciones] = useState(false);
 
-  const togglePerfil = () => {
+  const togglePerfilconst = () => {
     setMostrarPerfil(!mostrarPerfil);
   };
 
+  const mostrarComponente = () => {
+    
+    setEditiarCalificaciones(!editarCalificaciones)
+    console.log(`Se cambio el valor de editarCalificaicones: ${editarCalificaciones}`)
+  }
+
   return (
-    <div className="profesor-container">
+    <main className='fondo-Profesor'>
       <TopBar onPerfilToggle={togglePerfil} />
-      
-      <main className='fondo-Profesor'>
-        
-        {/* Mostrar CardAlumno solo cuando mostrarPerfil sea true */}
-        {mostrarPerfil && (
+      {mostrarPerfil && (
           <div className="card-alumno-container">
             <CardAlumno estadoPerfil={togglePerfil} />
           </div>
         )}
-        
-        <ListaMateriasProfesor />
-        <BotonExportarExcel 
-          datosParaExcel={datos} 
-          icono={faFileExcel} 
-          texto={"Exportar Calificaciones"} 
-        />
-        <TablaProfesores />
-      </main>
-    </div>
+      {/* <CardAlumno /> */}
+      <ListaMateriasProfesor mostrarComponente={mostrarComponente}/>
+      <button onClick={mostrarComponente}>Show</button>
+      {editarCalificaciones ? (<CalificacionesAlumnos />) : (<></>)}
+    </main>
+    
   );
 };
 
