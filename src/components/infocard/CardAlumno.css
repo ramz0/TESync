@@ -1,0 +1,91 @@
+.alumno-perfil {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    max-width: 380px;
+    margin: 20px auto;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #4CAF50;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+.profile-header h2 {
+    margin: 5px 0;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.matricula {
+    color: #000000;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.info-section {
+    background: #020508;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+
+.label {
+    font-weight: 600;
+    color: #ad3434;
+    display: inline-block;
+    width: 60px;
+}
+
+.calificaciones-section {
+    margin: 20px 0;
+}
+
+.calificaciones-section h3 {
+    color: #333;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+}
+
+.materia {
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.materia h4 {
+    margin: 0 0 8px 0;
+    color: #2c3e50;
+}
+
+.unidades {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.unidades span {
+    background: #000e1c;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+.promedio {
+    font-weight: 600;
+    margin: 5px 0 0 0;
+    color: #2c3e50;
+}

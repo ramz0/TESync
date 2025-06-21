@@ -1,7 +1,7 @@
 import './ProfesorStyle.css'
 import { useState } from 'react';
 import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
-import InfoCard from '../../components\InfoCard\InfoCard.jsx';
+import InfoCard from '../../components/InfoCard/InfoCard.jsx';
 import Dashboard from '../dashboard/Dashboard';
 import BotonExportarExcel from '../../components/BotonExportarExcel/BotonExportarExcel';
 import TablaProfesores from '../../components/TablaProfesores/TablaProfesores';

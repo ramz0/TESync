@@ -17,7 +17,10 @@ function InfoCard() {
   }
 
   return (
+    
     <div className="InfoCard">
+            <Dashboard></Dashboard>
+      
       <h2>Bienvenido {usuario.nombre}</h2>
 
       {rol === 'profesor' && (
@@ -38,5 +41,8 @@ function InfoCard() {
     </div>
   );
 }
+
+
+
 
 export default InfoCard;

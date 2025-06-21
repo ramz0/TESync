@@ -1,4 +1,5 @@
-import React from 'react';
+import InfoCard from '../../components/InfoCard/InfoCard.jsx';
+import Dashboard from '../dashboard/Dashboard';
 
 const alumno = {
   nombre: 'Juan Pérez',
@@ -21,7 +22,9 @@ const bounceKeyframes = `
 
 export default function AlumnoPerfil() {
   return (
+      
     <>
+      <Dashboard></Dashboard>
       <style>{bounceKeyframes}</style>
       <div style={{
         maxWidth: '700px',
