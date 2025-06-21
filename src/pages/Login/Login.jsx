@@ -32,7 +32,11 @@ export default function Login() {
         <Input icono={faKey} tipo={"password"} textoInterno={"Contraseña."} hacer={e => setPassword(e.target.value)}></Input>
         
         <Link to="/profesor" className='boton-n1'>
-          <button>Entrar</button>
+          <button>Entrar Prof</button>
+        </Link>
+
+        <Link to="/alumno" className='boton-n1'>
+          <button>Entrar Alum</button>
         </Link>
         </form>
     </div>

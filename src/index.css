@@ -1,9 +1,9 @@
 :root {
-    --color-base: #199490;
-    --color-base-2: rgb(32, 40, 45);
-    --color-base-3: #19949030;
+    --color-base: #000000;
+    --color-base-2: rgba(136, 177, 202, 0.941);
+    --color-base-3: #26676530;
     --color-borde: rgb(32, 33, 34);
-    --color-fondo: linear-gradient(90deg,rgba(232, 255, 255, 1) 0%, rgba(217, 255, 235, 1) 50%, rgba(255, 255, 212, 1) 100%);
+    --color-fondo: linear-gradient(90deg,rgb(196, 223, 223) 0%, rgba(217, 255, 235, 1) 50%, rgba(255, 255, 212, 1) 100%);
 
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
@@ -236,6 +236,7 @@ body, html, #root {
 .felx-btwn {
     justify-content: space-between;
 }
+
 .felx-around {
     justify-content: space-around;
 }
