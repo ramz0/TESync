@@ -88,8 +88,8 @@ const CalificacionesAlumnos = () => {
   const [datos] = useState(initialData);
 
   return (
-    <>
-    <BotonExportarExcel datosParaExcel = {datos} icono={faFileExcel} texto={"Exportar Calificaciones"} />   
+    <samp data-aos="fade-up">
+      <BotonExportarExcel datosParaExcel = {datos} icono={faFileExcel} texto={"Exportar Calificaciones"} />   
       <samp className='contenedor-instrucciones-calificaiones'>
       <h3>Instrucciones:</h3>
       <h4>Archivo Excel.</h4>
@@ -111,7 +111,7 @@ const CalificacionesAlumnos = () => {
       
       </samp>
       <TablaProfesores />
-    </>
+    </samp>
   );
 }
 
