@@ -1,3 +1,4 @@
+import './CalificacionesAlumnosStyle.css'
 import { useState } from 'react';
 
 import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
@@ -88,7 +89,27 @@ const CalificacionesAlumnos = () => {
 
   return (
     <>
-      <BotonExportarExcel datosParaExcel = {datos} icono={faFileExcel} texto={"Exportar Calificaciones"} />   
+    <BotonExportarExcel datosParaExcel = {datos} icono={faFileExcel} texto={"Exportar Calificaciones"} />   
+      <samp className='contenedor-instrucciones-calificaiones'>
+      <h3>Instrucciones:</h3>
+      <h4>Archivo Excel.</h4>
+      <ol type='A'>
+        <li>Puedes Descargar la plantilla para llevar el registro de tus alumnos en excel.</li> 
+        <li>Posteriormente cargar esas calificaciones con ese mismo excel (Cargalas con la plantilla que te proporcionamos nosotros).</li>
+        <ol type='1'>
+          <li>Descarga el Excel.</li>
+          <li>Llena el excel con las calificaciones <strong>por unidad</strong> de tus alumnos.</li>
+          <li>Suelta el archivo excel que tienes sobre la tabla.</li>
+        </ol>
+      </ol>
+      <h4>Tabla.</h4>
+      <ol type='A'>
+        <li>La tabla puede ser modificada desde aquí mismo.</li>
+        <li>Puedes borrar una unidad completa si te equivocaste.</li>
+        <li>Define el tiempo en el que debes de registrar tus unidades.</li>
+      </ol>
+      
+      </samp>
       <TablaProfesores />
     </>
   );
