@@ -1,5 +1,111 @@
-.contenedor-logo {
-        margin-bottom: '20px';
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
-          
-          
+
+.logo-img {
+  height: 70px;
+  animation: bounce 3.5s infinite;
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.1) rotate(2deg);
+}
+
+
+.logo-bounce {
+  animation: bounce 3.5s infinite;
+  animation-delay: 100s;
+}
+
+.Perfil-del-Alumno {
+  color: #000000;
+  font-weight: 700;
+  font-size: 1.6rem;
+  user-select: none;
+  margin: 0 1s5px;
+  flex-grow: 1;
+  text-align: center;
+  margin-bottom: 50px ;
+}
+
+.info-alumno {
+    margin-bottom: 75px;
+    line-height: 1.8;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #333;
+    text-align: justify;
+    text-justify: inter-word;
+    hyphens: auto;
+    word-break: break-word;
+
+}
+
+.subtitulo-materias {
+    border-bottom: 2px solid var(--color-base);
+    padding-bottom: 20px;
+    margin-bottom: 15px;
+    color: var(--color-base);
+}
+
+.tabla-materias {
+    width: 70%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #000000;
+
+}
+
+.encabezado-tabla {
+    background-color: var(--color-base-2);
+    text-align: left;
+    font-weight: 600;
+}
+
+.encabezado-tabla th {
+    padding: 12px 15px;
+    color: #000;
+}
+
+.fila-materia {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.599);
+}
+
+.fila-materia td {
+    padding: 12px 15px;
+}
+
+.fila-materia.par {
+    background-color: #e7f0ff;
+}
+
+.fila-materia.impar {
+    background-color: #ffffff;
+}
+
+.contenedor-tabla {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.contenedor-boton {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.fila-unidades ul {
+  list-style: none;
+  padding-left: 15px;
+  margin: 10px 0;
+  color: #333333;
+}
+
+.fila-unidades {
+  background-color: rgba(215, 237, 255, 0);
+}
+
