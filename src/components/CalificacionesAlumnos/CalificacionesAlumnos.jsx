@@ -1,6 +1,5 @@
 import './CalificacionesAlumnosStyle.css'
 import { useState } from 'react';
-
 import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
 
 import TablaProfesores from "../TablaProfesores/TablaProfesores";
