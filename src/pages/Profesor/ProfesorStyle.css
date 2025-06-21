@@ -1,3 +1,16 @@
 .fondo-Profesor {
   background-color: whitesmoke;
 }
+
+.show-bar {
+  background: transparent;
+  color: black;
+  height: 3rem;
+  width: 100%;
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+  border: 1px solid black;
+}
+
+.hide-bar{
+  border-radius: 0rem 0rem 0.5rem 0.5rem;
+}
