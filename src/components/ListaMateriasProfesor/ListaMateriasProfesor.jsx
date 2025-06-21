@@ -1,7 +1,7 @@
 import './ListaMateriasProfesorStyle.css'
 import BotonMaterias from "../BotonMaterias/BotonMaterias";
 
-const ListaMateriasProfesor = () => {
+const ListaMateriasProfesor = ({mostrarComponente}) => {
   return (
     <main 
       className='flex-column flex-stretch contenedor-info-lista'
@@ -32,11 +32,11 @@ const ListaMateriasProfesor = () => {
           className="flex-column lista-materias"
            data-aos="zoom-out-down"
         >
-          <BotonMaterias materia={"Programacion"} grupo={"4852"} estado={"listo"} />
-          <BotonMaterias materia={"Programacion"} grupo={"4852"} estado={"listo"} />
-          <BotonMaterias materia={"Programacion"} grupo={"4851"} estado={"pendiente"} />
-          <BotonMaterias materia={"Programacion"} grupo={"4851"} estado={"pendiente"} />
-          <BotonMaterias materia={"Programacion"} grupo={"4852"} estado={"listo"} />
+          <BotonMaterias materia={"Programacion"} grupo={"4852"} estado={"listo"} mostrarOtroComponente={mostrarComponente} />
+          <BotonMaterias materia={"Programacion"} grupo={"4852"} estado={"listo"} mostrarOtroComponente={mostrarComponente} />
+          <BotonMaterias materia={"Programacion"} grupo={"4851"} estado={"pendiente"} mostrarOtroComponente={mostrarComponente} />
+          <BotonMaterias materia={"Programacion"} grupo={"4851"} estado={"pendiente"} mostrarOtroComponente={mostrarComponente} />
+          <BotonMaterias materia={"Programacion"} grupo={"4852"} estado={"listo"} mostrarOtroComponente={mostrarComponente} />
         </nav>
       </span>
     </main>
