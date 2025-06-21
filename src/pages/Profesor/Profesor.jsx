@@ -1,8 +1,10 @@
+import './ProfesorStyle.css'
 import { useState } from 'react';
 import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
 
 import Dashboard from '../dashboard/Dashboard';
 import BotonExportarExcel from '../../components/BotonExportarExcel/BotonExportarExcel';
+import TablaProfesores from '../../components/TablaProfesores/TablaProfesores';
 
 const initialData = [
   {
@@ -137,9 +139,12 @@ const Profesor = () => {
   
 
   return (
-    <div>
+    <div className='fondo-Profesor'>
       <Dashboard></Dashboard>
       <BotonExportarExcel datosParaExcel = {datos} icono={faFileExcel} texto={"Exportar Calificaciones"} />
+
+      <TablaProfesores/>
+
       {datos.map((grupo, grupoIndex) => (
         <div key={grupo.grupo} style={{ marginBottom: '20px' }}>
           <h2 style={{ marginBottom: '6px', fontSize: '1.1rem', fontWeight: 'bold' }}>
