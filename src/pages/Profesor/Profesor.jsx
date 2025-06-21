@@ -1,7 +1,7 @@
 import './ProfesorStyle.css'
 import { useState } from 'react';
 import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
-
+import InfoCard from '../../components\InfoCard\InfoCard.jsx';
 import Dashboard from '../dashboard/Dashboard';
 import BotonExportarExcel from '../../components/BotonExportarExcel/BotonExportarExcel';
 import TablaProfesores from '../../components/TablaProfesores/TablaProfesores';
@@ -141,6 +141,7 @@ const Profesor = () => {
   return (
     <div className='fondo-Profesor'>
       <Dashboard></Dashboard>
+      <InfoCard></InfoCard>
       <BotonExportarExcel datosParaExcel = {datos} icono={faFileExcel} texto={"Exportar Calificaciones"} />
 
       <TablaProfesores/>
