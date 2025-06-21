@@ -1,6 +1,6 @@
-import InfoCard from '../../components/Infocard/InfoCard.jsx';
-import Dashboard from '../dashboard/Dashboard.jsx';
+
 import React, { useState } from 'react';
+import Dashboard from '../dashboard/Dashboard.jsx';
 import './AlumnoPerfil.css';
 
 const alumno = {
@@ -29,7 +29,7 @@ const alumno = {
   ],
 };
 
-// Definición del keyframe bounce para animación
+// Keyframes para la animación bounce
 const bounceKeyframes = `
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
@@ -62,10 +62,10 @@ export default function AlumnoPerfil() {
           position: 'relative',
         }}
       >
-        {/* Contenedor flex con logo izquierdo, título centrado y logo derecho */}
+        {/* Contenedor flex con logos y título */}
         <div className="contenedor-logo flex-row-center flex-btwn">
           <img
-            src="/ruta/a/logo-izquierdo.png" // Coloca la ruta correcta
+            src="/ruta/a/logo-izquierdo.png" // Pon la ruta correcta aquí
             alt="Logo Izquierdo"
             style={{ height: '50px', animation: 'bounce 3s infinite' }}
           />
@@ -83,12 +83,13 @@ export default function AlumnoPerfil() {
             Perfil del Alumno
           </h3>
           <img
-            src="/ruta/a/logo-derecho.png" // Coloca la ruta correcta
+            src="/ruta/a/logo-derecho.png" // Pon la ruta correcta aquí
             alt="Logo Derecho"
             style={{ height: '50px', animation: 'bounce 3.5s infinite', animationDelay: '0.5s' }}
           />
         </div>
 
+        {/* Info alumno */}
         <div className="info-alumno" style={{ marginTop: '20px' }}>
           <p>
             <strong>Nombre:</strong> {alumno.nombre}
@@ -101,6 +102,7 @@ export default function AlumnoPerfil() {
           </p>
         </div>
 
+        {/* Tabla materias */}
         <div className="contenedor-tabla" style={{ marginTop: '30px' }}>
           <h3 className="subtitulo-materias">Materias y Calificaciones</h3>
 
