@@ -1,13 +1,12 @@
-import './ProfesorStyle.css'
+import './ProfesorStyle.css';
 import { useState } from 'react';
 import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
-
-import CardAlumno from '../../components/infocard/CardAlumno.jsx';
-
+import CardAlumno from '../../components/CardAlumno/CardAlumno.jsx';
 import ListaMateriasProfesor from '../../components/ListaMateriasProfesor/ListaMateriasProfesor.jsx';
 import Dashboard from '../dashboard/Dashboard';
 import BotonExportarExcel from '../../components/BotonExportarExcel/BotonExportarExcel';
 import TablaProfesores from '../../components/TablaProfesores/TablaProfesores';
+import TopBar from '../../components/TopBar/TopBar';
 
 const initialData = [
   {
@@ -88,16 +87,35 @@ const initialData = [
 
 const Profesor = () => {
   const [datos] = useState(initialData);
+  const [mostrarPerfil, setMostrarPerfil] = useState(false);
+
+  const togglePerfil = () => {
+    setMostrarPerfil(!mostrarPerfil);
+  };
 
   return (
-    <main className='fondo-Profesor'>
-      <Dashboard />
-      {/* <CardAlumno /> */}
-      <ListaMateriasProfesor />
-      <BotonExportarExcel datosParaExcel = {datos} icono={faFileExcel} texto={"Exportar Calificaciones"} />
-      <TablaProfesores/>
-    </main>
+    <div className="profesor-container">
+      <TopBar onPerfilToggle={togglePerfil} />
+      
+      <main className='fondo-Profesor'>
+        
+        {/* Mostrar CardAlumno solo cuando mostrarPerfil sea true */}
+        {mostrarPerfil && (
+          <div className="card-alumno-container">
+            <CardAlumno estadoPerfil={togglePerfil} />
+          </div>
+        )}
+        
+        <ListaMateriasProfesor />
+        <BotonExportarExcel 
+          datosParaExcel={datos} 
+          icono={faFileExcel} 
+          texto={"Exportar Calificaciones"} 
+        />
+        <TablaProfesores />
+      </main>
+    </div>
   );
-}
+};
 
 export default Profesor;

@@ -1,5 +1,4 @@
-
-import InfoCard from '../../components/Infocard/InfoCard.jsx';
+import InfoCard from '../../components/CardAlumno/CardAlumno.jsx';
 import Dashboard from '../dashboard/Dashboard';
 
 
