@@ -19,6 +19,9 @@ const ListaMateriasProfesor = () => {
         </footer>
       </span>
       <nav className="flex-column lista-materias">
+        <header>
+          <p>Lista de Materias que Impartes:</p>
+        </header>
         <BotonMaterias materia={"Programacion"} grupo={"4852"} estado={"listo"} />
         <BotonMaterias materia={"Programacion"} grupo={"4852"} estado={"listo"} />
         <BotonMaterias materia={"Programacion"} grupo={"4851"} estado={"pendiente"} />
