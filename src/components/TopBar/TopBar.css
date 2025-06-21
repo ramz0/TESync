@@ -32,7 +32,7 @@
 }
 
 .nav-links a:hover {
-    color: #00adef;
+    color: var(--color-base);
 }
 
 .topbar-right {
