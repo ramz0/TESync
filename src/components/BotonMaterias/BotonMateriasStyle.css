@@ -14,10 +14,12 @@
 }
 
 .contenedor-btn-m-g-listo {
+  width: 100%;
   background-color: var(--color-listo);
 }
 
 .contenedor-btn-m-g-pendiente {
+  width: 100%;
   background-color: var(--color-pendiente);
 }
 .btn-m-g-listo {
