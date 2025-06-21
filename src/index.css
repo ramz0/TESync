@@ -27,6 +27,10 @@ body, html, #root {
     height: 100%;
 }
 
+ol {
+    margin-left: 2rem;
+}
+
 @keyframes hero-gradient-animation {
     0% {
         --x-0: 20%;
