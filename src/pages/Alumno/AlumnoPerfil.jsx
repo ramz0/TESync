@@ -1,5 +1,7 @@
-import InfoCard from '../../components/InfoCard/InfoCard.jsx';
+
+import InfoCard from '../../components/Infocard/InfoCard.jsx';
 import Dashboard from '../dashboard/Dashboard';
+
 
 const alumno = {
   nombre: 'Juan Pérez',

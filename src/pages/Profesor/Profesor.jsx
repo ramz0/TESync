@@ -2,6 +2,10 @@ import './ProfesorStyle.css'
 import { useState } from 'react';
 import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
 import InfoCard from '../../components/InfoCard/InfoCard.jsx';
+<<<<<<< HEAD
+=======
+import ListaMateriasProfesor from '../../components/ListaMateriasProfesor/ListaMateriasProfesor.jsx';
+>>>>>>> 927895a32d219d25b8a089d5cba2d00c19b1da14
 import Dashboard from '../dashboard/Dashboard';
 import BotonExportarExcel from '../../components/BotonExportarExcel/BotonExportarExcel';
 import TablaProfesores from '../../components/TablaProfesores/TablaProfesores';
@@ -140,10 +144,10 @@ const Profesor = () => {
 
   return (
     <div className='fondo-Profesor'>
-      <Dashboard></Dashboard>
-      <InfoCard></InfoCard>
+      <Dashboard/>
+      <InfoCard/>
+      <ListaMateriasProfesor />
       <BotonExportarExcel datosParaExcel = {datos} icono={faFileExcel} texto={"Exportar Calificaciones"} />
-
       <TablaProfesores/>
 
       {datos.map((grupo, grupoIndex) => (

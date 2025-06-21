@@ -1,0 +1,24 @@
+:root {
+  --color-tabla-campos:#4caf91;
+}
+
+.cuerpo-tabla {
+  background-color: aliceblue;
+  color: black;
+  border-radius: 0.2rem;
+  border: 0rem solid;
+  border-collapse: collapse;
+  margin: 0rem 1rem;
+}
+
+.cuerpo-tabla th {
+  background-color: var(--color-tabla-campos);
+}
+
+.nombre-materia {
+  background-color: var(--color-tabla-campos);
+  color: black;
+  margin: 0rem 1rem;
+  padding-left: 1.2rem;
+  text-decoration: underline;
+}

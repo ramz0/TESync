@@ -25,7 +25,7 @@ export default function Login() {
       <div className='login-image-custom sombra'>
         <img className='img-decoration' src={teschaImage} alt="img-escuela" />
       </div>
-        <form onSubmit={handleLogin} className='form-login flex-column'>
+        <form data-aos="fade-left" onSubmit={handleLogin} className='form-login flex-column'>
           <h1 className='titulo-login'>Iniciar Sesión</h1>
 
         <Input icono={faUser} tipo={"email"} textoInterno={"Usuario."} hacer={e => setEmail(e.target.value)} />
