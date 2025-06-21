@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './TopBar.css';
 
-export default function TopBar() {
+export default function TopBar({ onPerfilToggle }) {
   const [usuario, setUsuario] = useState(null);
 
   useEffect(() => {
@@ -17,14 +17,13 @@ export default function TopBar() {
         <span className="logo flex-row-center">
           <p className='l-tes'>Tes</p>
           <p>ync</p>
-          </span>
+        </span>
         <nav className="nav-links">
           <a href="/login">Inicio</a>
           <a href="/materias">Materias</a>
-          <a href="/perfil">Perfil</a>
+          <button onClick={onPerfilToggle}>Perfil</button>
         </nav>
       </div>
-
       {usuario && (
         <div className="topbar-right">
           <span>{usuario.nombre}</span>

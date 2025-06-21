@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+
+import InfoCard from '../../components/CardAlumno/CardAlumno.jsx';
+import Dashboard from '../dashboard/Dashboard';
 import Dashboard from '../dashboard/Dashboard.jsx';
 import './AlumnoPerfil.css';
 
