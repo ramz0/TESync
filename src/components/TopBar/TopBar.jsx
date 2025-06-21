@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './TopBar.css';
 
 export default function TopBar() {
@@ -14,7 +14,10 @@ export default function TopBar() {
   return (
     <header className="topbar">
       <div className="topbar-left">
-        <span className="logo">Tesync</span>
+        <span className="logo flex-row-center">
+          <p className='l-tes'>Tes</p>
+          <p>ync</p>
+          </span>
         <nav className="nav-links">
           <a href="/dashboard">Inicio</a>
           <a href="/materias">Materias</a>
