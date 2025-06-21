@@ -47,7 +47,7 @@
     min-width: 50px;
 }
 
-button {
+.btn-card-alumno {
     background: #1e1e1e;
     color: white;
     border: none;
@@ -59,6 +59,6 @@ button {
     font-size: 0.9rem;
 }
 
-button:hover {
+.btn-card-alumno:hover {
     background: #1f201f;
 }

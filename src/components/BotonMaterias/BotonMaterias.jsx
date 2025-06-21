@@ -9,7 +9,6 @@ const BotonMaterias = ({materia, grupo, estado, mostrarOtroComponente}) => {
       glareColor="#ffffff"
       glareOpacity={0.3}
       glareAngle={-30}
-      // glareSize={300}
       transitionDuration={800}
       playOnce={false}
     >

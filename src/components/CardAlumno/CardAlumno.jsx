@@ -27,7 +27,7 @@ function CardAlumno({estadoPerfil}) {
         <p><span className="label">Grupo:</span> {alumno.grupo}</p>
       </div>
       
-    <button onClick={estadoPerfil}>Ocultar perfil</button>
+    <button className='btn-card-alumno' onClick={estadoPerfil}>Ocultar perfil</button>
 
     </div>
   );

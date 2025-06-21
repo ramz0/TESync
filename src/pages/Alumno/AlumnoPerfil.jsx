@@ -1,8 +1,6 @@
-
-import InfoCard from '../../components/CardAlumno/CardAlumno.jsx';
-import Dashboard from '../dashboard/Dashboard';
-import Dashboard from '../dashboard/Dashboard.jsx';
 import './AlumnoPerfil.css';
+import { useState } from 'react';
+import Dashboard from '../dashboard/Dashboard';
 
 const alumno = {
   nombre: 'Juan Pérez',
