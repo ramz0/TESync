@@ -1,22 +1,24 @@
+import './TablaProfesoresStyle.css';
 
 const TablaProfesores = () => {
   return (
-    <>
-      <table>
+    <main className='flex-column'>
+      <h3 className='nombre-materia'>Materia y Grupo</h3>
+      <table className="cuerpo-tabla sombra">
         <tr>
-          <th>nombre</th>
-          <th>cedula</th>
+          <th>alumno</th>
+          <th>matricula</th>
           <th>correo</th>
-          <th>materias</th>
+          <th>calificacion</th>
         </tr>
         <tr>
           <td>Luis</td>
           <td>1212</td>
           <td>luis@ramz.com</td>
-          <td>muchas</td>
+          <td>0</td>
         </tr>
       </table>
-    </>
+    </main>
   )
 }
 

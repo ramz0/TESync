@@ -1,5 +1,3 @@
-import React from 'react';
-
 const alumno = {
   nombre: 'Juan Pérez',
   grupo: '4852',
