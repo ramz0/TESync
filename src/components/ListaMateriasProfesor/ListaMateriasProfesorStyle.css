@@ -6,6 +6,9 @@
   border-bottom-left-radius: 1rem;
 }
 
+.contenedor-info-lista {
+  margin: 1rem;
+}
 .contenedor-info-grupo {
   flex: 1;
 }
@@ -13,14 +16,19 @@
 .info-grupo {
   background-color: var(--color-base-2);
   padding: 0.8rem;
-  border-top-left-radius: 1rem;
+  border-radius: 1rem 1rem 0rem 0rem;
 }
 
 .grafica-grupo {
   padding: 3rem;
 }
 
+.titulo-lista-materias {
+  width: 20%;
+}
+
 .lista-materias {
+  background-color: rgba(240, 248, 255, 0.107);
   padding: 1rem;
   gap: 0.5rem;
   overflow-y: auto;
