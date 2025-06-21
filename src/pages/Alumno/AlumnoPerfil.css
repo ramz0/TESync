@@ -1,3 +1,4 @@
+
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
@@ -107,5 +108,10 @@
 
 .fila-unidades {
   background-color: rgba(215, 237, 255, 0);
+}
+
+
+.contenedor-logo {
+    margin-bottom: '20px';
 }
 

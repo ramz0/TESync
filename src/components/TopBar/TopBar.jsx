@@ -19,7 +19,7 @@ export default function TopBar() {
           <p>ync</p>
           </span>
         <nav className="nav-links">
-          <a href="/dashboard">Inicio</a>
+          <a href="/login">Inicio</a>
           <a href="/materias">Materias</a>
           <a href="/perfil">Perfil</a>
         </nav>
