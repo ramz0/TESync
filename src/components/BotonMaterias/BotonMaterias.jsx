@@ -11,7 +11,7 @@ const BotonMaterias = ({materia, grupo, estado}) => {
       transitionDuration={800}
       playOnce={false}
     >
-      <span className={'contenedor-btn-m-g-' + estado}>
+      <span className={'flex-column contenedor-btn-m-g-' + estado}>
         <button className={"flex-column btn-m-g btn-m-g-" + estado}>
           <p className="btn-txt-materia"> {materia} </p>
           <p className="btn-txt-grupo"> {grupo} </p>

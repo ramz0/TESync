@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import Dashboard from '../dashboard/Dashboard.jsx';
 import './AlumnoPerfil.css';
-import Dashboard from '../dashboard/Dashboard';
 
 const alumno = {
   nombre: 'Juan Pérez',
@@ -28,6 +28,14 @@ const alumno = {
   ],
 };
 
+// Animación bounce para los logos
+const bounceKeyframes = `
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+`;
+
 export default function AlumnoPerfil() {
   const [materiaSeleccionada, setMateriaSeleccionada] = useState(null);
 
@@ -36,37 +44,67 @@ export default function AlumnoPerfil() {
   };
 
   return (
-    <div className="fondo-animado">
-      <div className="contenedor-logo-izquierdo flex-row-center felx-btwn">
-        <img src="" alt="Logo Izquierdo" className="logo-img logo-bounce" />
-
-        {/* Enlace corregido que abre en una nueva pestaña */}
-        <a
-          href="/alumno"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="Perfil-del-Alumno"
-          style={{ cursor: 'pointer', textDecoration: 'none', color: 'inherit' }}
-        >
-          Perfil del Alumno
-        </a>
-
-        <img src="" alt="Logo Derecho" className="logo-img logo-bounce" />
-      </div>
-
+    <>
+      <style>{bounceKeyframes}</style>
       <Dashboard />
-
-      <div className="contenedor-info-principal">
-        <div className="info-alumno">
-          <p><strong>Nombre:</strong> {alumno.nombre}</p>
-          <p><strong>Grupo:</strong> {alumno.grupo}</p>
-          <p><strong>Correo:</strong> {alumno.correo}</p>
+      <div
+        className="fondo-animado"
+        style={{
+          maxWidth: '700px',
+          margin: '40px auto',
+          padding: '30px',
+          fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+          backgroundColor: '#f9faff',
+          borderRadius: '12px',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+          color: '#333',
+          position: 'relative',
+        }}
+      >
+        {/* Contenedor de logos y título */}
+        <div className="contenedor-logo flex-row-center flex-btwn">
+          <img
+            src="/ruta/a/logo-izquierdo.png" // Cambia la ruta por la correcta
+            alt="Logo Izquierdo"
+            style={{ height: '50px', animation: 'bounce 3s infinite' }}
+          />
+          <h3
+            style={{
+              color: '#1a73e8',
+              fontWeight: '600',
+              fontSize: '1.5rem',
+              userSelect: 'none',
+              margin: '0 15px',
+              flexGrow: 1,
+              textAlign: 'center',
+            }}
+          >
+            Perfil del Alumno
+          </h3>
+          <img
+            src="/ruta/a/logo-derecho.png" // Cambia la ruta por la correcta
+            alt="Logo Derecho"
+            style={{ height: '50px', animation: 'bounce 3.5s infinite', animationDelay: '0.5s' }}
+          />
         </div>
 
-        <div className="contenedor-tabla">
-          <h3 className="subtitulo-materias">Materias y Calificaciones</h3>
+        {/* Información del alumno */}
+        <div className="info-alumno" style={{ marginTop: '20px' }}>
+          <p>
+            <strong>Nombre:</strong> {alumno.nombre}
+          </p>
+          <p>
+            <strong>Grupo:</strong> {alumno.grupo}
+          </p>
+          <p>
+            <strong>Correo:</strong> {alumno.correo}
+          </p>
+        </div>
 
-          <table className="tabla-materias">
+        {/* Tabla de materias y calificaciones */}
+        <div className="contenedor-tabla" style={{ marginTop: '30px' }}>
+          <h3 className="subtitulo-materias">Materias y Calificaciones</h3>
+          <table className="tabla-materias" style={{ width: '100%' }}>
             <thead>
               <tr className="encabezado-tabla">
                 <th>Materia</th>
@@ -84,7 +122,9 @@ export default function AlumnoPerfil() {
                   >
                     <td>{materia.nombre}</td>
                     <td>{materia.grupo}</td>
-                    <td><strong>{materia.calificacionFinal}</strong></td>
+                    <td>
+                      <strong>{materia.calificacionFinal}</strong>
+                    </td>
                   </tr>
                   {materiaSeleccionada === i && (
                     <tr className="fila-unidades">
@@ -104,13 +144,13 @@ export default function AlumnoPerfil() {
             </tbody>
           </table>
 
-          <div className="contenedor-boton">
+          <div className="contenedor-boton" style={{ marginTop: '20px', textAlign: 'center' }}>
             <button onClick={() => window.history.back()} className="boton-n1">
               ← Regresar
             </button>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

@@ -1,16 +1,8 @@
 .topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     background-color: #1e1e1e;
     color: white;
     padding: 12px 30px;
     font-family: 'Segoe UI', sans-serif;
-}
-
-.topbar-left {
-    display: flex;
-    align-items: center;
 }
 
 .logo {
@@ -18,6 +10,11 @@
     font-weight: bold;
     margin-right: 40px;
     color: #ffffff;
+}
+
+/* Nomborrar l-tes */
+.l-tes {
+    color: var(--color-base);
 }
 
 .nav-links a {
@@ -28,12 +25,5 @@
 }
 
 .nav-links a:hover {
-    color: #00adef;
-}
-
-.topbar-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    font-size: 14px;
+    color: var(--color-base);
 }

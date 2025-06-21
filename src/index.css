@@ -216,6 +216,12 @@ body, html, #root {
     background-blend-mode: normal, normal, normal, normal;
 }
 
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
 .flex-row-center {
     display: flex;
     flex-direction: row;
@@ -240,10 +246,14 @@ body, html, #root {
 .felx-around {
     justify-content: space-around;
 }
+
 .flex-evenly {
     justify-content: space-evenly;
 }
 
+.flex-stretch {
+    align-items: stretch;
+}
 .sombra {
     box-shadow: 0 6px 6px hsl(0deg 0% 0% / 0.3);
 }

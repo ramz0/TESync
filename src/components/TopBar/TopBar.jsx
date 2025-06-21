@@ -13,7 +13,7 @@ export default function TopBar() {
 
   return (
     <header className="topbar">
-      <div className="topbar-left">
+      <div className="topbar-left flex-row">
         <span className="logo flex-row-center">
           <p className='l-tes'>Tes</p>
           <p>ync</p>
