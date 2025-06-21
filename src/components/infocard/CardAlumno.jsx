@@ -1,4 +1,4 @@
-import './AlumnoPerfil.css';
+import './CardAlumno.css';
 import AlumnoImg from '../../assets/Alumno.jpg'; // Ruta ajustada
 
 function AlumnoPerfil() {
