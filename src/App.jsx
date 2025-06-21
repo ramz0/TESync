@@ -1,6 +1,7 @@
+// App.jsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AlumnoPerfil from './AlumnoPerfil';
-import Login from './Login'; // si ya tienes este componente
+import Login from './Login';
 
 function App() {
   return (
