@@ -21,7 +21,7 @@ export default function TopBar({ onPerfilToggle }) {
         <nav className="nav-links">
           <a href="/login">Inicio</a>
           <a href="/materias">Materias</a>
-          <button onClick={onPerfilToggle}>Perfil</button>
+          <a href='#' onClick={onPerfilToggle}>Perfil</a>
         </nav>
       </div>
       {usuario && (

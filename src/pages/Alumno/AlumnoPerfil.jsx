@@ -114,8 +114,9 @@ export default function AlumnoPerfil() {
             </thead>
             <tbody>
               {alumno.materias.map((materia, i) => (
-                <React.Fragment key={i}>
+                <>
                   <tr
+                    key={i}
                     onClick={() => toggleMateria(i)}
                     className={`fila-materia ${i % 2 === 0 ? 'par' : 'impar'}`}
                     style={{ cursor: 'pointer' }}
@@ -139,7 +140,7 @@ export default function AlumnoPerfil() {
                       </td>
                     </tr>
                   )}
-                </React.Fragment>
+                </>
               ))}
             </tbody>
           </table>
