@@ -1,10 +1,25 @@
-
-
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logo animado */
 .logo-img {
   height: 70px;
   animation: bounce 3.5s infinite;
@@ -22,6 +37,7 @@
   animation-delay: 100s;
 }
 
+/* Encabezado principal */
 .Perfil-del-Alumno {
   color: var(--color-base-2);
   font-weight: 700;
@@ -34,27 +50,33 @@
   text-shadow: 1px 1px 2px var(--color-base-3);
 }
 
+/* Contenedor logos y título */
+.contenedor-logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+/* Info general del alumno */
 .info-alumno {
   margin-bottom: 80px;
   line-height: 1.8;
   font-size: 1.4rem;
-  font-weight: 500;
+  font-weight: 800;
   color: var(--color-base-2);
   text-align: justify;
-  text-justify: inter-word;
   hyphens: auto;
   word-break: break-word;
-  font-weight: 800;
 }
 
+/* Tabla y subtítulo */
 .subtitulo-materias {
   border-bottom: 3px solid var(--color-base);
   padding-bottom: 15px;
   margin-bottom: 20px;
-  color: var(--color-base);
-  width: 70%;
-  font-weight: 600;
   color: black;
+  width: 70%;
   font-weight: 700;
 }
 
@@ -69,6 +91,7 @@
   border-radius: 12px;
   box-shadow: 0 8px 16px rgb(25 148 144 / 0.15);
   overflow: hidden;
+  margin: 0 auto;
 }
 
 .encabezado-tabla {
@@ -86,7 +109,7 @@
 .fila-materia {
   box-shadow: 0 1px 3px rgb(25 148 144 / 0.2);
   transition: background-color 0.3s ease;
-  cursor: default;
+  cursor: pointer;
 }
 
 .fila-materia:hover {
@@ -106,147 +129,16 @@
   background-color: rgba(25, 148, 144, 0.05);
 }
 
-.contenedor-tabla {
-  width: 100%;
-  margin-top: 20px;
-}
-
-.contenedor-boton {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.boton-n1 {
-  background: linear-gradient(45deg, var(--color-base), var(--color-base-2));
-  border-radius: 25px;
-  border: none;
-  color: white;
-  font-weight: 700;
-  padding: 0.8rem 3rem;
-  box-shadow: 0 5px 12px rgb(25 148 144 / 0.7);
-  cursor: pointer;
-  
-}
-
-.boton-n1:hover {
-  background: linear-gradient(45deg, var(--color-base-2), var(--color-base));
-  box-shadow: 0 8px 20px rgb(25 148 144 / 0.9);
-}
-
-.contenedor-logo {
-    margin-bottom: '20px';
-}
-
-.contenedor-logo {
-    margin-bottom: '20px';
-}
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-.logo-img {
-  height: 70px;
-  animation: bounce 3.5s infinite;
-  transition: transform 0.3s ease;
-  filter: drop-shadow(0 1px 3px var(--color-base-3));
-}
-
-.logo-img:hover {
-  transform: scale(1.1) rotate(3deg);
-  filter: drop-shadow(0 4px 6px var(--color-base));
-}
-
-.logo-bounce {
-  animation: bounce 3.5s infinite;
-  animation-delay: 100s;
-}
-
-.Perfil-del-Alumno {
-  color: var(--color-base-2);
-  font-weight: 700;
-  font-size: 1.6rem;
-  user-select: none;
-  margin: 0 15px;
-  flex-grow: 1;
-  text-align: center;
-  margin-bottom: 50px;
-  text-shadow: 1px 1px 2px var(--color-base-3);
-}
-
-.info-alumno {
-  margin-bottom: 80px;
-  line-height: 1.8;
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: var(--color-base-2);
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
-  word-break: break-word;
-  font-weight: 800;
-}
-
-.subtitulo-materias {
-  border-bottom: 3px solid var(--color-base);
-  padding-bottom: 15px;
-  margin-bottom: 20px;
-  color: var(--color-base);
-  width: 70%;
+.fila-unidades td ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+  font-size: 1rem;
   font-weight: 600;
-  color: black;
-  font-weight: 700;
-}
-
-.tabla-materias {
-  width: 70%;
-  border-collapse: separate;
-  border-spacing: 0 12px;
-  font-size: 18px;
-  font-weight: 500;
-  color: var(--color-base-2);
-  background: linear-gradient(135deg, #e0f7f7, #c4e3e3);
-  border-radius: 12px;
-  box-shadow: 0 8px 16px rgb(25 148 144 / 0.15);
-  overflow: hidden;
-}
-
-.encabezado-tabla {
-  background: var(--color-base);
-  text-align: left;
-  font-weight: 700;
-  color: white;
-  box-shadow: 0 3px 8px rgb(25 148 144 / 0.6);
-}
-
-.encabezado-tabla th {
-  padding: 14px 18px;
-}
-
-.fila-materia {
-  box-shadow: 0 1px 3px rgb(25 148 144 / 0.2);
-  transition: background-color 0.3s ease;
-  cursor: default;
-}
-
-.fila-materia:hover {
-  background-color: var(--color-base-3);
   color: var(--color-base-2);
 }
 
-.fila-materia td {
-  padding: 14px 18px;
-}
-
-.fila-materia.par {
-  background-color: rgba(25, 148, 144, 0.1);
-}
-
-.fila-materia.impar {
-  background-color: rgba(25, 148, 144, 0.05);
-}
-
+/* Botones y contenedores */
 .contenedor-tabla {
   width: 100%;
   margin-top: 20px;
@@ -262,12 +154,12 @@
   background: linear-gradient(45deg, var(--color-base), var(--color-base-2));
   border-radius: 25px;
   border: none;
-  color: white;
+  color: rgba(255, 255, 255, 0);
   font-weight: 700;
   padding: 0.8rem 3rem;
   box-shadow: 0 5px 12px rgb(25 148 144 / 0.7);
   cursor: pointer;
-  
+  transition: all 0.3s ease-in-out;
 }
 
 .boton-n1:hover {
@@ -275,8 +167,22 @@
   box-shadow: 0 8px 20px rgb(25 148 144 / 0.9);
 }
 
-
-.contenedor-logo {
-    margin-bottom: '20px';
+/* Botón flotante para mostrar/ocultar */
+.show-bar {
+  display: block;
+  margin: 30px auto 10px auto;
+  background-color: var(--color-base);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgb(25 148 144 / 0.5);
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.3s ease-in-out;
 }
 
+.show-bar:hover {
+  background-color: var(--color-base-2);
+  transform: translateY(-2px);
+}
