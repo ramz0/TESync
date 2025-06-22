@@ -1,12 +1,18 @@
 /* CardAlumno.css - Versión Compacta */
 
 .card-alumno {
+    position: absolute;
+    top: 70px;
+    /* Ajusta según tu TopBar */
+    right: 20px;
     background: white;
     border-radius: 12px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     padding: 15px;
     width: 280px;
     font-family: 'Segoe UI', sans-serif;
+    z-index: 1000;
+    /* Asegura que esté por encima */
 }
 
 .profile-header {
