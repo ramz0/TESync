@@ -142,3 +142,57 @@
     color: #666;
     padding: 20px;
 }
+
+
+/* Estilos adicionales para la selección por semestre */
+
+.admin-select[disabled] {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+}
+
+.admin-button[disabled] {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+
+/* Mejoras para la tabla con semestres */
+
+.tabla-asignaciones th:nth-child(1),
+.tabla-asignaciones td:nth-child(1) {
+    width: 100px;
+    text-align: center;
+}
+
+
+/* Estilos para agrupación por semestre */
+
+.semestre-group {
+    margin-bottom: 30px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.semestre-group h4 {
+    background-color: #1a73e8;
+    color: white;
+    padding: 10px 15px;
+    margin: 0;
+}
+
+.semestre-group table {
+    width: 100%;
+    margin-top: 0;
+}
+
+.semestre-group table thead {
+    background-color: #f8f9fa;
+}
+
+.semestre-group table th {
+    background-color: #f8f9fa;
+    color: #333;
+}
