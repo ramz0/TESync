@@ -14,10 +14,15 @@ const Profesor = () => {
   const [editarCalificaciones, setEditiarCalificaciones] = useState(false);
   const [ocultarBtn, setOcultarBtn] = useState(false);
   const [iconBar, setIconBar] = useState("");
+  const [estadoCalificaciones, setEstadoCalificaciones] = useState("");
   
   const togglePerfil = () => {
     setMostrarPerfil(!mostrarPerfil);
   };
+
+  const cambiarColorTabla = (estado) => {
+    setEstadoCalificaciones(estado == "pendiente" ? "calificaciones-pendientes":"")
+  }
 
   const mostrarComponente = () => setEditiarCalificaciones(true)
 
@@ -35,13 +40,13 @@ const Profesor = () => {
             <CardAlumno estadoPerfil={togglePerfil} />
           </div>
         )}
-      <ListaMateriasProfesor mostrarComponente={mostrarComponente}/>
+      <ListaMateriasProfesor mostrarComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla}/>
       {ocultarBtn||editarCalificaciones ? (
         <button data-aos="fade-up" className={'show-bar ' + iconBar} onClick={mostrarOcultarComponente}>
           <FontAwesomeIcon icon={editarCalificaciones ? faAngleUp : faAngleDown} />
         </button>
       ) :(<></>)}
-      {editarCalificaciones ? (<CalificacionesAlumnos />) : (<></>)}
+      {editarCalificaciones ? (<CalificacionesAlumnos estadoCalificacionesTabla={estadoCalificaciones} />) : (<></>)}
     </main>
     
   );

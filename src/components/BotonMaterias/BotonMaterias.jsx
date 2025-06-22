@@ -1,9 +1,19 @@
 import './BotonMateriasStyle.css'
 import GlareHover from '../GlareHover/GlareHover'
 
-const BotonMaterias = ({materia, grupo, estado, mostrarOtroComponente}) => {
+const BotonMaterias = ({materia, grupo, estado, mostrarOtroComponente, cambiarColorTabla}) => {
+
+  const definirColorTabla = () => {
+    cambiarColorTabla(estado)
+  }
+
+  const mostrarTabla = () => {
+    definirColorTabla()
+    mostrarOtroComponente()
+  }
+
   return (
-    <button className='btn-principal' onClick={mostrarOtroComponente}>
+    <button className='btn-principal' onClick={mostrarTabla}>
 
     <GlareHover
       glareColor="#ffffff"

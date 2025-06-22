@@ -2,6 +2,8 @@
     --color-base: #199490;
     --color-base-2: rgb(32, 40, 45);
     --color-base-3: #19949030;
+    --color-listo: rgb(0, 128, 83);
+    --color-pendiente: rgb(255, 77, 0);
     --color-borde: rgb(32, 33, 34);
     --color-fondo: linear-gradient(90deg,rgba(232, 255, 255, 1) 0%, rgba(217, 255, 235, 1) 50%, rgba(255, 255, 212, 1) 100%);
 

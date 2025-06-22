@@ -1,11 +1,11 @@
 import './TablaProfesoresStyle.css';
 
-const TablaProfesores = () => {
+const TablaProfesores = ({estadoCalificaciones}) => {
   return (
     <main className='flex-column'>
-      <h3 className='nombre-materia'>Materia y Grupo</h3>
+      <h3 className={'nombre-materia ' + estadoCalificaciones}>Materia y Grupo</h3>
       <table className="cuerpo-tabla sombra">
-        <tr>
+        <tr className={estadoCalificaciones}>
           <th>alumno</th>
           <th>matricula</th>
           <th>correo</th>

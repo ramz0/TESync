@@ -1,7 +1,8 @@
 import './ListaMateriasProfesorStyle.css'
 import BotonMaterias from "../BotonMaterias/BotonMaterias";
 
-const ListaMateriasProfesor = ({mostrarComponente}) => {
+const ListaMateriasProfesor = ({mostrarComponente, cambiarColorTabla}) => {
+
   return (
     <main 
       className='flex-column flex-stretch contenedor-info-lista'
@@ -32,11 +33,12 @@ const ListaMateriasProfesor = ({mostrarComponente}) => {
           className="flex-column lista-materias"
            data-aos="zoom-out-down"
         >
-          <BotonMaterias materia={"Programacion"} grupo={"4852"} estado={"listo"} mostrarOtroComponente={mostrarComponente} />
-          <BotonMaterias materia={"Programacion"} grupo={"4852"} estado={"listo"} mostrarOtroComponente={mostrarComponente} />
-          <BotonMaterias materia={"Programacion"} grupo={"4851"} estado={"pendiente"} mostrarOtroComponente={mostrarComponente} />
-          <BotonMaterias materia={"Programacion"} grupo={"4851"} estado={"pendiente"} mostrarOtroComponente={mostrarComponente} />
-          <BotonMaterias materia={"Programacion"} grupo={"4852"} estado={"listo"} mostrarOtroComponente={mostrarComponente} />
+          <BotonMaterias materia={"Programacion"} grupo={"4852"} estado={"listo"} mostrarOtroComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla} />
+          <BotonMaterias materia={"Programacion"} grupo={"4851"} estado={"pendiente"} mostrarOtroComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla} />
+          <BotonMaterias materia={"Programacion"} grupo={"4852"} estado={"listo"} mostrarOtroComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla} />
+          <BotonMaterias materia={"Programacion"} grupo={"4851"} estado={"pendiente"} mostrarOtroComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla} />
+          <BotonMaterias materia={"Programacion"} grupo={"4852"} estado={"listo"} mostrarOtroComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla} />
+          <BotonMaterias materia={"Programacion"} grupo={"4851"} estado={"pendiente"} mostrarOtroComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla} />
         </nav>
       </span>
     </main>

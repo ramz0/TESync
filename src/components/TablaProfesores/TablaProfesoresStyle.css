@@ -1,6 +1,3 @@
-:root {
-  --color-tabla-campos:#4caf91;
-}
 
 .cuerpo-tabla {
   background-color: aliceblue;
@@ -16,14 +13,18 @@
 
 .nombre-materia,
 .cuerpo-tabla th {
-  background-color: var(--color-tabla-campos);
+  background-color: var(--color-listo);
   border: 1px solid black;
 }
 
 .nombre-materia {
-  background-color: var(--color-tabla-campos);
   color: black;
   margin: 0rem 1rem;
   padding-left: 1.2rem;
   border-radius: 1rem 1rem 0rem 0rem;
+}
+
+.calificaciones-pendientes th,
+.calificaciones-pendientes {
+  background-color: var(--color-pendiente);
 }
