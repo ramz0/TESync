@@ -3,7 +3,7 @@ import BotonMaterias from "../BotonMaterias/BotonMaterias";
 import FiltroListaMateriasProfesor from '../FiltroListaMateriasProfesor/FiltroListaMateriasProfesor';
 import { useState } from 'react';
 
-const ListaMateriasProfesor = ({mostrarComponente, cambiarColorTabla}) => {
+const ListaMateriasProfesor = ({enviarDatosMateria, mostrarComponente, cambiarColorTabla}) => {
   
   const listaMaterias =[ 
     {nombreMateria: "Programacion", grupoAsignado:"4852", estadoCalificaciones: "listo"},
@@ -59,7 +59,7 @@ const ListaMateriasProfesor = ({mostrarComponente, cambiarColorTabla}) => {
           className="flex-column lista-materias"
            data-aos="zoom-out-down"
         >
-          {mostrarMaterias.map(m => (<BotonMaterias materia={m.nombreMateria} grupo={m.grupoAsignado} estado={m.estadoCalificaciones} mostrarOtroComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla} />))}
+          {mostrarMaterias.map(m => (<BotonMaterias materia={m.nombreMateria} grupo={m.grupoAsignado} estado={m.estadoCalificaciones} mostrarOtroComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla} enviarDatosMateria={enviarDatosMateria} />))}
         </nav>
       </span>
     </main>

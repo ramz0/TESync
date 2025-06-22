@@ -15,15 +15,12 @@ const Profesor = () => {
   const [ocultarBtn, setOcultarBtn] = useState(false);
   const [iconBar, setIconBar] = useState("");
   const [estadoCalificaciones, setEstadoCalificaciones] = useState("");
+  const [datosMateria, setDatosMateria] = useState({nombreMateria:null, grupoMateria:null});
   
-  const togglePerfil = () => {
-    setMostrarPerfil(!mostrarPerfil);
-  };
+  const togglePerfil = () => setMostrarPerfil(!mostrarPerfil);
 
-  const cambiarColorTabla = (estado) => {
-    setEstadoCalificaciones(estado == "pendiente" ? "calificaciones-pendientes":"")
-  }
-
+  const cambiarColorTabla = (estado) => setEstadoCalificaciones(estado == "pendiente" ? "calificaciones-pendientes":"")
+  
   const mostrarComponente = () => setEditiarCalificaciones(true)
 
   const mostrarOcultarComponente = () => {
@@ -31,6 +28,10 @@ const Profesor = () => {
     setOcultarBtn(true)
     setIconBar(editarCalificaciones?"hide-bar":"")
   } 
+
+  const preguntarPorDatosMateria = (datosRecibidosMateria) => {
+    setDatosMateria(datosRecibidosMateria)
+  }
 
   return (
     <main className='fondo-Profesor'>
@@ -41,13 +42,13 @@ const Profesor = () => {
             <CardAlumno estadoPerfil={togglePerfil} />
           </div>
         )}
-      <ListaMateriasProfesor mostrarComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla}/>
+      <ListaMateriasProfesor enviarDatosMateria={preguntarPorDatosMateria} mostrarComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla}/>
       {ocultarBtn||editarCalificaciones ? (
         <button data-aos="fade-up" className={'show-bar ' + iconBar} onClick={mostrarOcultarComponente}>
           <FontAwesomeIcon icon={editarCalificaciones ? faAngleUp : faAngleDown} />
         </button>
       ) :(<></>)}
-      {editarCalificaciones ? (<CalificacionesAlumnos estadoCalificacionesTabla={estadoCalificaciones} />) : (<></>)}
+      {editarCalificaciones ? (<CalificacionesAlumnos datosMateria={datosMateria} estadoCalificacionesTabla={estadoCalificaciones} />) : (<></>)}
     </main>
     
   );
