@@ -1,6 +1,7 @@
-import './AlumnoPerfil.css';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Dashboard from '../dashboard/Dashboard';
+import CardAlumno from '../../components/CardAlumno/CardAlumno';
+import TopBar from '../../components/TopBar/TopBar'; // Ajusta ruta si es necesario
 
 const alumno = {
   nombre: 'Juan Pérez',
@@ -28,25 +29,25 @@ const alumno = {
   ],
 };
 
-// Animación bounce para los logos
-const bounceKeyframes = `
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-`;
-
 export default function AlumnoPerfil() {
+  const [mostrarPerfil, setMostrarPerfil] = useState(false);
   const [materiaSeleccionada, setMateriaSeleccionada] = useState(null);
 
-  const toggleMateria = (index) => {
+  const togglePerfil = () => setMostrarPerfil(!mostrarPerfil);
+  const toggleMateria = (index) =>
     setMateriaSeleccionada(materiaSeleccionada === index ? null : index);
-  };
 
   return (
     <>
-      <style>{bounceKeyframes}</style>
       <Dashboard />
+      <TopBar onPerfilToggle={togglePerfil} />
+
+      {mostrarPerfil && (
+        <div style={{ maxWidth: 700, margin: '20px auto' }}>
+          <CardAlumno estadoPerfil={togglePerfil} />
+        </div>
+      )}
+
       <div
         className="fondo-animado"
         style={{
@@ -56,52 +57,12 @@ export default function AlumnoPerfil() {
           fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
           backgroundColor: '#f9faff',
           borderRadius: '12px',
-          boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+          boxShadow: '0 4px 12px rgba(82, 153, 204, 0.32)',
           color: '#333',
           position: 'relative',
         }}
       >
-        {/* Contenedor de logos y título */}
-        <div className="contenedor-logo flex-row-center flex-btwn">
-          <img
-            src="/ruta/a/logo-izquierdo.png" // Cambia la ruta por la correcta
-            alt="Logo Izquierdo"
-            style={{ height: '50px', animation: 'bounce 3s infinite' }}
-          />
-          <h3
-            style={{
-              color: '#1a73e8',
-              fontWeight: '600',
-              fontSize: '1.5rem',
-              userSelect: 'none',
-              margin: '0 15px',
-              flexGrow: 1,
-              textAlign: 'center',
-            }}
-          >
-            Perfil del Alumno
-          </h3>
-          <img
-            src="/ruta/a/logo-derecho.png" // Cambia la ruta por la correcta
-            alt="Logo Derecho"
-            style={{ height: '50px', animation: 'bounce 3.5s infinite', animationDelay: '0.5s' }}
-          />
-        </div>
-
-        {/* Información del alumno */}
-        <div className="info-alumno" style={{ marginTop: '20px' }}>
-          <p>
-            <strong>Nombre:</strong> {alumno.nombre}
-          </p>
-          <p>
-            <strong>Grupo:</strong> {alumno.grupo}
-          </p>
-          <p>
-            <strong>Correo:</strong> {alumno.correo}
-          </p>
-        </div>
-
-        {/* Tabla de materias y calificaciones */}
+        {/* Tabla de materias */}
         <div className="contenedor-tabla" style={{ marginTop: '30px' }}>
           <h3 className="subtitulo-materias">Materias y Calificaciones</h3>
           <table className="tabla-materias" style={{ width: '100%' }}>
@@ -114,9 +75,8 @@ export default function AlumnoPerfil() {
             </thead>
             <tbody>
               {alumno.materias.map((materia, i) => (
-                <>
+                <React.Fragment key={i}>
                   <tr
-                    key={i}
                     onClick={() => toggleMateria(i)}
                     className={`fila-materia ${i % 2 === 0 ? 'par' : 'impar'}`}
                     style={{ cursor: 'pointer' }}
@@ -140,11 +100,10 @@ export default function AlumnoPerfil() {
                       </td>
                     </tr>
                   )}
-                </>
+                </React.Fragment>
               ))}
             </tbody>
           </table>
-
           <div className="contenedor-boton" style={{ marginTop: '20px', textAlign: 'center' }}>
             <button onClick={() => window.history.back()} className="boton-n1">
               ← Regresar
