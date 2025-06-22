@@ -1,0 +1,144 @@
+.admin-container {
+    padding: 40px 60px;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f5f7fa;
+    min-height: 100vh;
+}
+
+.admin-container h1 {
+    font-size: 28px;
+    color: #1e1e1e;
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 2px solid #1a73e8;
+    padding-bottom: 10px;
+}
+
+.admin-section {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(140, 6, 6, 0.08);
+    padding: 25px 30px;
+    margin-bottom: 40px;
+}
+
+.admin-section h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.admin-select-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.admin-select {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #fff;
+    color: #333;
+}
+
+.admin-button {
+    background-color: #1a73e8;
+    color: #ffffff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.admin-button:hover {
+    background-color: #155ab6;
+}
+
+@media (max-width: 600px) {
+    .admin-select-group {
+        flex-direction: column;
+    }
+    .admin-select {
+        width: 100%;
+    }
+}
+
+.admin-confirmacion {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+    padding: 12px 18px;
+    margin: 15px 0;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* Estilos para la tabla de asignaciones */
+
+.tabla-asignaciones {
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.tabla-asignaciones h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.tabla-asignaciones table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-asignaciones th {
+    background-color: #1a73e8;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.tabla-asignaciones td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.tabla-asignaciones tr:last-child td {
+    border-bottom: none;
+}
+
+.texto-negro {
+    color: #000 !important;
+}
+
+.boton-eliminar {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.boton-eliminar:hover {
+    background-color: #c82333;
+}
+
+.tabla-asignaciones p {
+    text-align: center;
+    color: #666;
+    padding: 20px;
+}

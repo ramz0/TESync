@@ -38,6 +38,10 @@ export default function Login() {
         <Link to="/alumno" className='boton-n1'>
           <button>Entrar Alum</button>
         </Link>
+
+        <Link to="/Admin" className='boton-n1'>
+          <button>Entrar Adm</button>
+        </Link>
         </form>
     </div>
   );
