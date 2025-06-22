@@ -5,7 +5,7 @@ import { faFileExcel } from '@fortawesome/free-solid-svg-icons';
 import TablaProfesores from "../TablaProfesores/TablaProfesores";
 import BotonExportarExcel from "../BotonExportarExcel/BotonExportarExcel";
 
-const CalificacionesAlumnos = ({estadoCalificacionesTabla}) => {
+const CalificacionesAlumnos = ({datosMateria, estadoCalificacionesTabla}) => {
 
   const initialData = [
     {
@@ -109,7 +109,7 @@ const CalificacionesAlumnos = ({estadoCalificacionesTabla}) => {
       </ol>
       
       </samp>
-      <TablaProfesores estadoCalificaciones={estadoCalificacionesTabla} />
+      <TablaProfesores datosMateria={datosMateria} estadoCalificaciones={estadoCalificacionesTabla} />
     </samp>
   );
 }

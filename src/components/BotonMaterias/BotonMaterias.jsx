@@ -1,15 +1,12 @@
 import './BotonMateriasStyle.css'
 import GlareHover from '../GlareHover/GlareHover'
 
-const BotonMaterias = ({materia, grupo, estado, mostrarOtroComponente, cambiarColorTabla}) => {
-
-  const definirColorTabla = () => {
-    cambiarColorTabla(estado)
-  }
-
+const BotonMaterias = ({materia, grupo, estado, mostrarOtroComponente, cambiarColorTabla, enviarDatosMateria}) => {
+  
   const mostrarTabla = () => {
-    definirColorTabla()
     mostrarOtroComponente()
+    cambiarColorTabla(estado)
+    enviarDatosMateria({nombreMateria:materia, grupoMateria:grupo})
   }
 
   return (
@@ -23,9 +20,7 @@ const BotonMaterias = ({materia, grupo, estado, mostrarOtroComponente, cambiarCo
       playOnce={false}
     >
       <span className={'flex-column contenedor-btn-m-g-' + estado}>
-        <span 
-          className={"flex-column btn-m-g btn-m-g-" + estado}
-        >
+        <span className={"flex-column btn-m-g btn-m-g-" + estado}>
           <p className="btn-txt-materia"> {materia} </p>
           <p className="btn-txt-grupo"> {grupo} </p>
         </span>

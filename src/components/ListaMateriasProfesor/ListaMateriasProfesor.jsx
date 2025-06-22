@@ -1,15 +1,39 @@
 import './ListaMateriasProfesorStyle.css'
 import BotonMaterias from "../BotonMaterias/BotonMaterias";
 import FiltroListaMateriasProfesor from '../FiltroListaMateriasProfesor/FiltroListaMateriasProfesor';
+import { useState } from 'react';
 
-const ListaMateriasProfesor = ({mostrarComponente, cambiarColorTabla}) => {
+const ListaMateriasProfesor = ({enviarDatosMateria, mostrarComponente, cambiarColorTabla}) => {
+  
+  const listaMaterias =[ 
+    {nombreMateria: "Programacion", grupoAsignado:"4852", estadoCalificaciones: "listo"},
+    {nombreMateria: "Programacion", grupoAsignado:"4851", estadoCalificaciones: "pendiente"},
+    {nombreMateria: "Base De Datos", grupoAsignado:"4101", estadoCalificaciones: "pendiente"},
+    {nombreMateria: "Redes", grupoAsignado:"4402", estadoCalificaciones: "listo"},
+    {nombreMateria: "Taller De Investigacion", grupoAsignado:"4202", estadoCalificaciones: "pendiente"},
+  ] 
+  
+  const [mostrarMaterias, setMostrarMaterias] = useState(listaMaterias)
+
+  const saberEstadoListaMaterias = (aviso) => {
+    let listaMateriasFiltradas = []
+    if (aviso[0].msg === 'materias listas') 
+      listaMateriasFiltradas = listaMaterias.filter(lm => lm.estadoCalificaciones === "listo")
+    else if (aviso[0].msg === 'materias pendientes')
+      listaMateriasFiltradas = listaMaterias.filter(lm => lm.estadoCalificaciones === "pendiente")
+    else
+      listaMateriasFiltradas = listaMaterias
+
+    console.log(listaMateriasFiltradas)
+    setMostrarMaterias(listaMateriasFiltradas)
+  }
 
   return (
     <main 
       className='flex-column flex-stretch contenedor-info-lista'
       data-aos="zoom-out-left"
     >
-      <FiltroListaMateriasProfesor />
+      <FiltroListaMateriasProfesor avisarEstadoListaMaterias={saberEstadoListaMaterias}/>
       <header className='flex-row felx-btwn info-grupo'>
         <span className='flex-colum'>
           <h3>Materia:</h3>
@@ -35,12 +59,7 @@ const ListaMateriasProfesor = ({mostrarComponente, cambiarColorTabla}) => {
           className="flex-column lista-materias"
            data-aos="zoom-out-down"
         >
-          <BotonMaterias materia={"Programacion"} grupo={"4852"} estado={"listo"} mostrarOtroComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla} />
-          <BotonMaterias materia={"Programacion"} grupo={"4851"} estado={"pendiente"} mostrarOtroComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla} />
-          <BotonMaterias materia={"Programacion"} grupo={"4852"} estado={"listo"} mostrarOtroComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla} />
-          <BotonMaterias materia={"Programacion"} grupo={"4851"} estado={"pendiente"} mostrarOtroComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla} />
-          <BotonMaterias materia={"Programacion"} grupo={"4852"} estado={"listo"} mostrarOtroComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla} />
-          <BotonMaterias materia={"Programacion"} grupo={"4851"} estado={"pendiente"} mostrarOtroComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla} />
+          {mostrarMaterias.map(m => (<BotonMaterias materia={m.nombreMateria} grupo={m.grupoAsignado} estado={m.estadoCalificaciones} mostrarOtroComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla} enviarDatosMateria={enviarDatosMateria} />))}
         </nav>
       </span>
     </main>

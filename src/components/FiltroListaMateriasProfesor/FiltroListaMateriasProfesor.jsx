@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { faFileCircleCheck, faFileCircleExclamation, faFile } from '@fortawesome/free-solid-svg-icons';
 import BotonFiltroMateria from '../BotonFiltroMateria/BotonFiltroMateria';
 
-const FiltroListaMateriasProfesor = () => {
+const FiltroListaMateriasProfesor = ({avisarEstadoListaMaterias}) => {
   const [botonesActivos, setBotonesActivos] = useState([
     {id: 0, icono: faFileCircleCheck, msg: "materias listas", estado: false},
     {id: 1, icono: faFileCircleExclamation, msg: "materias pendientes", estado: false},
@@ -15,6 +15,10 @@ const FiltroListaMateriasProfesor = () => {
       ...ba,
       estado: ba.id === id
     })));
+    avisarEstadoListaMaterias(botonesActivos.map(ba => ({
+      msg: ba.msg,
+      estado: ba.id === id
+    })).filter(ba => ba.estado))
   };
 
   return (
