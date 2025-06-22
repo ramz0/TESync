@@ -1,5 +1,6 @@
 import './ListaMateriasProfesorStyle.css'
 import BotonMaterias from "../BotonMaterias/BotonMaterias";
+import FiltroListaMateriasProfesor from '../FiltroListaMateriasProfesor/FiltroListaMateriasProfesor';
 
 const ListaMateriasProfesor = ({mostrarComponente, cambiarColorTabla}) => {
 
@@ -8,6 +9,7 @@ const ListaMateriasProfesor = ({mostrarComponente, cambiarColorTabla}) => {
       className='flex-column flex-stretch contenedor-info-lista'
       data-aos="zoom-out-left"
     >
+      <FiltroListaMateriasProfesor />
       <header className='flex-row felx-btwn info-grupo'>
         <span className='flex-colum'>
           <h3>Materia:</h3>

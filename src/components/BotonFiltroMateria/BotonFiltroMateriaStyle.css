@@ -1,0 +1,26 @@
+.btn-filtro-materia {
+  background-color: aliceblue;
+  color: var(--color-base);
+  border: 1px solid var(--color-base);
+  border-radius: 2rem;
+  padding: 0.5rem 2rem;
+  margin: 0.5rem 1rem;
+}
+
+.btn-filtro-materia > * {
+  margin-right: 0.3rem;
+}
+
+.btn-filtro-materia-on {
+  background-color: var(--color-base);
+  color: aliceblue;
+  border: 1px solid aliceblue;
+}
+
+.btn-filtro-materia:hover {
+  background-color: rgb(238, 242, 246);
+}
+
+.btn-filtro-materia-on:hover {
+  background-color: var(--color-base);
+}

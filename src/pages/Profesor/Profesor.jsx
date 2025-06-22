@@ -34,6 +34,7 @@ const Profesor = () => {
 
   return (
     <main className='fondo-Profesor'>
+      <br />
       <TopBar onPerfilToggle={togglePerfil} />
       {mostrarPerfil && (
           <div className="card-alumno-container">
