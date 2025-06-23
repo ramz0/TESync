@@ -1,14 +1,35 @@
 import './ListaMateriasProfesorStyle.css'
+import { useState } from 'react';
 import BotonMaterias from "../BotonMaterias/BotonMaterias";
 import FiltroListaMateriasProfesor from '../FiltroListaMateriasProfesor/FiltroListaMateriasProfesor';
-import { useState } from 'react';
+import BarChart from '../BarChart/BarChart'
 
 const ListaMateriasProfesor = ({enviarDatosMateria, mostrarComponente, cambiarColorTabla}) => {
   
+  const datos = {
+    labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],
+    datasets: [{
+      label: 'Asistencia diaria',
+      data: [20, 25, 18, 22, 19],
+      backgroundColor: '#4f46e5'
+    }]
+  };
+
+  const opciones = {
+    responsive: true,
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  };
+
   const listaMaterias =[ 
     {nombreMateria: "Programacion", grupoAsignado:"4852", estadoCalificaciones: "listo"},
     {nombreMateria: "Programacion", grupoAsignado:"4851", estadoCalificaciones: "pendiente"},
     {nombreMateria: "Base De Datos", grupoAsignado:"4101", estadoCalificaciones: "pendiente"},
+    {nombreMateria: "Redes", grupoAsignado:"4402", estadoCalificaciones: "listo"},
+    {nombreMateria: "Redes", grupoAsignado:"4402", estadoCalificaciones: "listo"},
     {nombreMateria: "Redes", grupoAsignado:"4402", estadoCalificaciones: "listo"},
     {nombreMateria: "Taller De Investigacion", grupoAsignado:"4202", estadoCalificaciones: "pendiente"},
   ] 
@@ -44,22 +65,29 @@ const ListaMateriasProfesor = ({enviarDatosMateria, mostrarComponente, cambiarCo
           <p>Lista de Materias que Impartes:</p>
         </span>
       </header>
-      <span className='flex-row'>
-
+      <span className='flex-row contenedor-materias-completo'>
+        {/* uno */}
         <span className='flex-column contenedor-info-grupo'>
           <main className='grafica-grupo'>
-            <p>Aquí va la grafica de estadisticas del grupo.</p>
+            <BarChart datos={datos} opciones={opciones} />
           </main>
           <footer className="descripcion-grupo">
             <h3>Descripcion de Desempeño:</h3>
             <p >Aqui debe ir un texto muy grande o no tan grande pero que si de una descripcion del rendimiento del grupo, si no hay registro de calificaciones que tenga un mensaje "Aun no hay estadisticas".</p>
           </footer>
         </span>
-        <nav 
-          className="flex-column lista-materias"
-           data-aos="zoom-out-down"
-        >
-          {mostrarMaterias.map(m => (<BotonMaterias materia={m.nombreMateria} grupo={m.grupoAsignado} estado={m.estadoCalificaciones} mostrarOtroComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla} enviarDatosMateria={enviarDatosMateria} />))}
+        {/* dos */}
+        <nav className="flex-column lista-materias" data-aos="zoom-out-down">
+          {mostrarMaterias.map(m => (
+            <BotonMaterias 
+              materia={m.nombreMateria} 
+              grupo={m.grupoAsignado} 
+              estado={m.estadoCalificaciones} 
+              mostrarOtroComponente={mostrarComponente} 
+              cambiarColorTabla={cambiarColorTabla} 
+              enviarDatosMateria={enviarDatosMateria} 
+            />
+          ))}
         </nav>
       </span>
     </main>
