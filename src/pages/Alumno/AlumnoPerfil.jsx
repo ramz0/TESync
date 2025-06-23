@@ -48,9 +48,9 @@ export default function AlumnoPerfil() {
       <TopBar onPerfilToggle={togglePerfil} />
 
       {mostrarPerfil && (
-        <div className="perfil-container">
+        <span className="perfil-container">
           <CardAlumno estadoPerfil={togglePerfil} />
-        </div>
+        </span>
       )}
 
       <header className="header-section">
@@ -76,7 +76,7 @@ export default function AlumnoPerfil() {
         <div className="flex-column materias-container">
           <h2 className="materias-titulo">Materias y Calificaciones</h2>
           
-          <div className="materias-grid">
+          <span className="materias-grid">
             {alumno.materias.map((materia, i) => (
               <CardAlumnoCalificaciones 
               key={i} 
@@ -85,7 +85,7 @@ export default function AlumnoPerfil() {
               verMaterias={() => toggleMateria(i)}
             />
             ))}
-          </div>
+          </span>
           
           <div className="boton-container">
             <button onClick={() => window.history.back()} className="boton-regresar">
