@@ -1,10 +1,10 @@
 import './index.css';
+import './config/chart';
+import 'aos/dist/aos.css';
+import AOS from 'aos';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-import 'aos/dist/aos.css';
-import AOS from 'aos';
 
 import Home from './pages/Home/Home.jsx';
 import Login from './pages/Login/Login.jsx';
