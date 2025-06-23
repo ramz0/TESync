@@ -4,9 +4,13 @@
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 6px 6px hsl(0deg 0% 0% / 0.3);
-  padding: 1rem;
   margin: 1% 4%;
   gap: 1.3rem;
+}
+
+.contenido-login {
+  margin: 1rem;
+  gap: 1.5rem;
 }
 
 .login-container-custom {
@@ -15,10 +19,10 @@
 
 .login-image-custom {
   background-color: var(--color-base-3);
-    width: 50%;
-    height: 96.8vh;
-    padding: 10px;
-    border-radius: 0rem 10rem 10rem 0rem;
+  width: 50%;
+  height: 96.8vh;
+  padding: 10px;
+  border-radius: 0rem 10rem 10rem 0rem;
 }
 
 .img-decoration {
@@ -30,14 +34,21 @@
 }
 
 .titulo-login {
-  background-color: var(--color-base-2);
-  color: var(--color-base);
+  background-color: var(--color-base);
+  color: white;
   font-size: 3rem;
-  height: 10rem;
+  height: 6rem;
   align-content: center;
-  border-radius: 5px;
+  border: 2px solid var(--color-base);
+  border-radius: 5px 5px 50px 50px;
 }
 
 .input-formulario {
     margin-bottom: 1rem;
+}
+
+.footer-login {
+  background-color: var(--color-base-2);
+  border-radius: 0rem 0rem 10px 10px;
+  height: 1rem;
 }

@@ -275,7 +275,27 @@ ol {
 
 .boton-n1 {
     background-color: var(--color-base-2);
+    color: aliceblue;
     border-radius: 20rem;
-    border: 2px solid var(--color-borde);
+    border: 1px solid var(--color-borde);
     padding: 0.7rem 3rem;
+}
+
+.boton-n1:hover {
+    background-color: aliceblue;
+    color: var(--color-base-2);
+    border: 1px solid var(--color-base-2);
+}
+.boton-n2 {
+    background-color: aliceblue;
+    color: var(--color-base-2);
+    border: 1px solid var(--color-base-2);
+    border-radius: 20rem;
+    padding: 0.7rem 3rem;
+}
+
+.boton-n2:hover {
+    background-color: var(--color-base-2);
+    color: aliceblue;
+    border: 1px solid var(--color-borde);
 }

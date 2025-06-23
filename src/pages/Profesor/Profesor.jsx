@@ -42,7 +42,7 @@ const Profesor = () => {
             <CardAlumno estadoPerfil={togglePerfil} />
           </div>
         )}
-      <ListaMateriasProfesor enviarDatosMateria={preguntarPorDatosMateria} mostrarComponente={mostrarComponente} cambiarColorTabla={cambiarColorTabla}/>
+      <ListaMateriasProfesor enviarDatosMateria={preguntarPorDatosMateria} mostrarComponente={mostrarComponente} datosMateria={datosMateria} cambiarColorTabla={cambiarColorTabla}/>
       {ocultarBtn||editarCalificaciones ? (
         <button data-aos="fade-up" className={'show-bar ' + iconBar} onClick={mostrarOcultarComponente}>
           <FontAwesomeIcon icon={editarCalificaciones ? faAngleUp : faAngleDown} />

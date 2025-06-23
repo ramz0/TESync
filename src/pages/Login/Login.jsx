@@ -27,21 +27,23 @@ export default function Login() {
       </div>
         <form data-aos="fade-left" onSubmit={handleLogin} className='form-login flex-column'>
           <h1 className='titulo-login'>Iniciar Sesión</h1>
+          <main className='flex-column contenido-login'>
+            <Input icono={faUser} tipo={"email"} textoInterno={"Usuario."} hacer={e => setEmail(e.target.value)} />
+            <Input icono={faKey} tipo={"password"} textoInterno={"Contraseña."} hacer={e => setPassword(e.target.value)} />
+            
+            <Link to="/profesor" className='boton-n2'>
+              Entrar Prof
+            </Link>
 
-        <Input icono={faUser} tipo={"email"} textoInterno={"Usuario."} hacer={e => setEmail(e.target.value)} />
-        <Input icono={faKey} tipo={"password"} textoInterno={"Contraseña."} hacer={e => setPassword(e.target.value)} />
-        
-        <Link to="/profesor" className='boton-n1'>
-          <button>Entrar Prof</button>
-        </Link>
+            <Link to="/alumno" className='boton-n2'>
+              Entrar Alum
+            </Link>
 
-        <Link to="/alumno" className='boton-n1'>
-          <button>Entrar Alum</button>
-        </Link>
-
-        <Link to="/Admin" className='boton-n1'>
-          <button>Entrar Adm</button>
-        </Link>
+            <Link to="/Admin" className='boton-n2'>
+              Entrar Adm
+            </Link>
+          </main>
+          <footer className='footer-login'></footer>
         </form>
     </div>
   );

@@ -11,7 +11,6 @@ import Login from './pages/Login/Login.jsx';
 import Register from './pages/Register/Register.jsx';
 import Profesor from './pages/Profesor/Profesor.jsx';
 import AlumnoPerfil from './pages/Alumno/AlumnoPerfil.jsx';
-import Dashboard from './pages/dashboard/Dashboard.jsx';
 import Admin from './pages/Admin/Admin.jsx';
 
 AOS.init({
@@ -30,7 +29,6 @@ createRoot(document.getElementById('root')).render(
         <Route path="/Admin" element={<Admin />} />
 
         <Route path="/alumno" element={<AlumnoPerfil />} />
-        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>
