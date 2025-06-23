@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
 import './admin.css';
-import Dashboard from '../dashboard/Dashboard';
+import { useState, useEffect } from 'react';
+
+import TopBar from '../../components/TopBar/TopBar';
 
 export default function AdminPage() {
   const [materias, setMaterias] = useState([]);
@@ -14,6 +15,9 @@ export default function AdminPage() {
 
   const [mostrarAsignaciones, setMostrarAsignaciones] = useState(false);
   const [mensajeConfirmacion, setMensajeConfirmacion] = useState('');
+  const [mostrarPerfil, setMostrarPerfil] = useState(false);
+
+  const togglePerfil = () => setMostrarPerfil(!mostrarPerfil);
 
   useEffect(() => {
     setMaterias([
@@ -113,7 +117,7 @@ export default function AdminPage() {
 
   return (
     <div className="admin-container">
-      <Dashboard />
+       <TopBar onPerfilToggle={togglePerfil} />
       <h1>Panel de Administración</h1>
 
       {mensajeConfirmacion && (

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import Dashboard from '../dashboard/Dashboard';
+import './AlumnoPerfil.css';
+import { useState } from 'react';
 import CardAlumno from '../../components/CardAlumno/CardAlumno';
 import TopBar from '../../components/TopBar/TopBar';
-import './AlumnoPerfil.css';
+import CardAlumnoCalificaciones from '../../components/CardAlumnoCalificaciones/CardAlumnoCalificaciones';
 
 const alumno = {
   nombre: 'Juan Pérez',
@@ -41,20 +41,10 @@ export default function AlumnoPerfil() {
   const [materiaSeleccionada, setMateriaSeleccionada] = useState(null);
 
   const togglePerfil = () => setMostrarPerfil(!mostrarPerfil);
-  const toggleMateria = (index) => 
-    setMateriaSeleccionada(materiaSeleccionada === index ? null : index);
-
-  const getColorCalificacion = (calificacion) => {
-    if (calificacion >= 9) return '#4CAF50'; // Verde
-    if (calificacion >= 8) return '#8BC34A'; // Verde claro
-    if (calificacion >= 7) return '#FFC107'; // Amarillo
-    if (calificacion >= 6) return '#FF9800'; // Naranja
-    return '#F44336'; // Rojo
-  };
+  const toggleMateria = (index) => setMateriaSeleccionada(materiaSeleccionada === index ? null : index);
 
   return (
     <>
-      <Dashboard />
       <TopBar onPerfilToggle={togglePerfil} />
 
       {mostrarPerfil && (
@@ -63,70 +53,37 @@ export default function AlumnoPerfil() {
         </div>
       )}
 
-      <div className="main-container">
-        <div className="header-section">
-          <div className="alumno-info">
-            <div>
-              <h1 className="alumno-nombre">{alumno.nombre}</h1>
-              <p className="alumno-datos">
-                <span>Grupo: {alumno.grupo}</span>
-                <span>Correo: {alumno.correo}</span>
-              </p>
-            </div>
-          </div>
-          <div className="promedio-container">
-            <div className="promedio-circulo">
-              <span>Promedio</span>
-              <strong>8.4</strong>
-            </div>
+      <header className="header-section">
+        <div className="alumno-info">
+          <div>
+            <h1 className="alumno-nombre">{alumno.nombre}</h1>
+            <p className="alumno-datos">
+              <span>Grupo: {alumno.grupo}</span>
+              <span>Correo: {alumno.correo}</span>
+            </p>
           </div>
         </div>
+        <div className="promedio-container">
+          <div className="promedio-circulo">
+            <span>Promedio</span>
+            <strong>8.4</strong>
+          </div>
+        </div>
+      </header>
 
-        <div className="materias-container">
+      <div className="main-container">
+
+        <div className="flex-column materias-container">
           <h2 className="materias-titulo">Materias y Calificaciones</h2>
           
           <div className="materias-grid">
             {alumno.materias.map((materia, i) => (
-              <div 
-                key={i} 
-                className={`materia-card ${materiaSeleccionada === i ? 'expanded' : ''}`}
-                onClick={() => toggleMateria(i)}
-              >
-                <div className="materia-header">
-                  <h3>{materia.nombre}</h3>
-                  <div 
-                    className="calificacion-final" 
-                    style={{ backgroundColor: getColorCalificacion(materia.calificacionFinal) }}
-                  >
-                    {materia.calificacionFinal}
-                  </div>
-                </div>
-                
-                <div className="materia-info">
-                  <p><strong>Grupo:</strong> {materia.grupo}</p>
-                  <p><strong>Profesor:</strong> {materia.profesor}</p>
-                  <p><strong>Horario:</strong> {materia.horario}</p>
-                </div>
-                
-                {materiaSeleccionada === i && (
-                  <div className="unidades-container">
-                    <h4>Calificaciones por Unidad</h4>
-                    <div className="unidades-grid">
-                      {materia.unidades.map((nota, idx) => (
-                        <div key={idx} className="unidad-item">
-                          <span>Unidad {idx + 1}</span>
-                          <span 
-                            className="unidad-nota"
-                            style={{ color: getColorCalificacion(nota) }}
-                          >
-                            {nota}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
+              <CardAlumnoCalificaciones 
+              key={i} 
+              materia={materia} 
+              estaExpandida={materiaSeleccionada === i}
+              verMaterias={() => toggleMateria(i)}
+            />
             ))}
           </div>
           
