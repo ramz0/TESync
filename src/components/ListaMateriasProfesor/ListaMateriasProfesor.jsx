@@ -4,14 +4,24 @@ import BotonMaterias from "../BotonMaterias/BotonMaterias";
 import FiltroListaMateriasProfesor from '../FiltroListaMateriasProfesor/FiltroListaMateriasProfesor';
 import BarChart from '../BarChart/BarChart'
 
-const ListaMateriasProfesor = ({enviarDatosMateria, mostrarComponente, cambiarColorTabla}) => {
+const ListaMateriasProfesor = ({enviarDatosMateria, mostrarComponente, datosMateria, cambiarColorTabla}) => {
   
+  const listaMaterias =[ 
+    {nombreMateria: "Programacion", grupoAsignado:"4852", estadoCalificaciones: "listo"},
+    {nombreMateria: "Programacion", grupoAsignado:"4851", estadoCalificaciones: "pendiente"},
+    {nombreMateria: "Base De Datos", grupoAsignado:"4101", estadoCalificaciones: "pendiente"},
+    {nombreMateria: "Redes", grupoAsignado:"4402", estadoCalificaciones: "listo"},
+    {nombreMateria: "Redes", grupoAsignado:"4402", estadoCalificaciones: "listo"},
+    {nombreMateria: "Redes", grupoAsignado:"4402", estadoCalificaciones: "listo"},
+    {nombreMateria: "Taller De Investigacion", grupoAsignado:"4202", estadoCalificaciones: "pendiente"},
+  ]
+
   const datos = {
-    labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],
+    labels: listaMaterias.map(nm => nm.nombreMateria),
     datasets: [{
       label: 'Asistencia diaria',
-      data: [20, 25, 18, 22, 19],
-      backgroundColor: '#4f46e5'
+      data: listaMaterias.map(() => 20),
+      backgroundColor: 'rgb(0, 100, 83)'
     }]
   };
 
@@ -23,16 +33,6 @@ const ListaMateriasProfesor = ({enviarDatosMateria, mostrarComponente, cambiarCo
       }
     }
   };
-
-  const listaMaterias =[ 
-    {nombreMateria: "Programacion", grupoAsignado:"4852", estadoCalificaciones: "listo"},
-    {nombreMateria: "Programacion", grupoAsignado:"4851", estadoCalificaciones: "pendiente"},
-    {nombreMateria: "Base De Datos", grupoAsignado:"4101", estadoCalificaciones: "pendiente"},
-    {nombreMateria: "Redes", grupoAsignado:"4402", estadoCalificaciones: "listo"},
-    {nombreMateria: "Redes", grupoAsignado:"4402", estadoCalificaciones: "listo"},
-    {nombreMateria: "Redes", grupoAsignado:"4402", estadoCalificaciones: "listo"},
-    {nombreMateria: "Taller De Investigacion", grupoAsignado:"4202", estadoCalificaciones: "pendiente"},
-  ] 
   
   const [mostrarMaterias, setMostrarMaterias] = useState(listaMaterias)
 
@@ -57,9 +57,14 @@ const ListaMateriasProfesor = ({enviarDatosMateria, mostrarComponente, cambiarCo
       <FiltroListaMateriasProfesor avisarEstadoListaMaterias={saberEstadoListaMaterias}/>
       <header className='flex-row felx-btwn info-grupo'>
         <span className='flex-colum'>
-          <h3>Materia:</h3>
-          <h4>Grupo:</h4>
-          <h4>Estado: "Pendiente o Calificaciones Cargadas"</h4>
+          <h3>Materia: {datosMateria.nombreMateria}</h3>
+          <h4>Grupo: {datosMateria.grupoMateria}</h4>
+          <h4>
+            Estado: {listaMaterias
+              .filter(mg => datosMateria.nombreMateria === mg.nombreMateria && datosMateria.grupoMateria === mg.grupoAsignado)
+              .map(e => e.estadoCalificaciones)[0]
+            }
+          </h4>
         </span>
         <span className='flex-column titulo-lista-materias'>
           <p>Lista de Materias que Impartes:</p>
