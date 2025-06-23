@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Dashboard from '../dashboard/Dashboard';
 import CardAlumno from '../../components/CardAlumno/CardAlumno';
-import TopBar from '../../components/TopBar/TopBar'; // Ajusta ruta si es necesario
+import TopBar from '../../components/TopBar/TopBar';
+import './AlumnoPerfil.css';
 
 const alumno = {
   nombre: 'Juan Pérez',
@@ -9,22 +10,28 @@ const alumno = {
   correo: 'juan.perez@example.com',
   materias: [
     {
-      nombre: 'Programacion web',
+      nombre: 'Programación Web',
       grupo: '4852',
       calificacionFinal: 8.5,
       unidades: [8.5, 9.0, 8.0],
+      profesor: 'Dra. Ana López',
+      horario: 'Lunes y Miércoles 10:00-12:00'
     },
     {
-      nombre: 'Base de datos',
+      nombre: 'Base de Datos',
       grupo: '4852',
       calificacionFinal: 9.0,
       unidades: [9.0, 9.5, 8.5],
+      profesor: 'Dr. Carlos Méndez',
+      horario: 'Martes y Jueves 14:00-16:00'
     },
     {
-      nombre: 'Diseño web',
+      nombre: 'Diseño Web',
       grupo: '4852',
       calificacionFinal: 7.8,
       unidades: [7.0, 8.0, 8.5],
+      profesor: 'Mtro. Javier Ruiz',
+      horario: 'Viernes 9:00-13:00'
     },
   ],
 };
@@ -34,8 +41,16 @@ export default function AlumnoPerfil() {
   const [materiaSeleccionada, setMateriaSeleccionada] = useState(null);
 
   const togglePerfil = () => setMostrarPerfil(!mostrarPerfil);
-  const toggleMateria = (index) =>
+  const toggleMateria = (index) => 
     setMateriaSeleccionada(materiaSeleccionada === index ? null : index);
+
+  const getColorCalificacion = (calificacion) => {
+    if (calificacion >= 9) return '#4CAF50'; // Verde
+    if (calificacion >= 8) return '#8BC34A'; // Verde claro
+    if (calificacion >= 7) return '#FFC107'; // Amarillo
+    if (calificacion >= 6) return '#FF9800'; // Naranja
+    return '#F44336'; // Rojo
+  };
 
   return (
     <>
@@ -43,69 +58,80 @@ export default function AlumnoPerfil() {
       <TopBar onPerfilToggle={togglePerfil} />
 
       {mostrarPerfil && (
-        <div style={{ maxWidth: 700, margin: '20px auto' }}>
+        <div className="perfil-container">
           <CardAlumno estadoPerfil={togglePerfil} />
         </div>
       )}
 
-      <div
-        className="fondo-animado"
-        style={{
-          maxWidth: '700px',
-          margin: '40px auto',
-          padding: '30px',
-          fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
-          backgroundColor: '#f9faff',
-          borderRadius: '12px',
-          boxShadow: '0 4px 12px rgba(82, 153, 204, 0.32)',
-          color: '#333',
-          position: 'relative',
-        }}
-      >
-        {/* Tabla de materias */}
-        <div className="contenedor-tabla" style={{ marginTop: '30px' }}>
-          <h3 className="subtitulo-materias">Materias y Calificaciones</h3>
-          <table className="tabla-materias" style={{ width: '100%' }}>
-            <thead>
-              <tr className="encabezado-tabla">
-                <th>Materia</th>
-                <th>Grupo</th>
-                <th>Calificación Final</th>
-              </tr>
-            </thead>
-            <tbody>
-              {alumno.materias.map((materia, i) => (
-                <React.Fragment key={i}>
-                  <tr
-                    onClick={() => toggleMateria(i)}
-                    className={`fila-materia ${i % 2 === 0 ? 'par' : 'impar'}`}
-                    style={{ cursor: 'pointer' }}
+      <div className="main-container">
+        <div className="header-section">
+          <div className="alumno-info">
+            <div>
+              <h1 className="alumno-nombre">{alumno.nombre}</h1>
+              <p className="alumno-datos">
+                <span>Grupo: {alumno.grupo}</span>
+                <span>Correo: {alumno.correo}</span>
+              </p>
+            </div>
+          </div>
+          <div className="promedio-container">
+            <div className="promedio-circulo">
+              <span>Promedio</span>
+              <strong>8.4</strong>
+            </div>
+          </div>
+        </div>
+
+        <div className="materias-container">
+          <h2 className="materias-titulo">Materias y Calificaciones</h2>
+          
+          <div className="materias-grid">
+            {alumno.materias.map((materia, i) => (
+              <div 
+                key={i} 
+                className={`materia-card ${materiaSeleccionada === i ? 'expanded' : ''}`}
+                onClick={() => toggleMateria(i)}
+              >
+                <div className="materia-header">
+                  <h3>{materia.nombre}</h3>
+                  <div 
+                    className="calificacion-final" 
+                    style={{ backgroundColor: getColorCalificacion(materia.calificacionFinal) }}
                   >
-                    <td>{materia.nombre}</td>
-                    <td>{materia.grupo}</td>
-                    <td>
-                      <strong>{materia.calificacionFinal}</strong>
-                    </td>
-                  </tr>
-                  {materiaSeleccionada === i && (
-                    <tr className="fila-unidades">
-                      <td colSpan="3">
-                        <ul>
-                          {materia.unidades.map((nota, idx) => (
-                            <li key={idx}>
-                              <strong>Unidad {idx + 1}:</strong> {nota}
-                            </li>
-                          ))}
-                        </ul>
-                      </td>
-                    </tr>
-                  )}
-                </React.Fragment>
-              ))}
-            </tbody>
-          </table>
-          <div className="contenedor-boton" style={{ marginTop: '20px', textAlign: 'center' }}>
-            <button onClick={() => window.history.back()} className="boton-n1">
+                    {materia.calificacionFinal}
+                  </div>
+                </div>
+                
+                <div className="materia-info">
+                  <p><strong>Grupo:</strong> {materia.grupo}</p>
+                  <p><strong>Profesor:</strong> {materia.profesor}</p>
+                  <p><strong>Horario:</strong> {materia.horario}</p>
+                </div>
+                
+                {materiaSeleccionada === i && (
+                  <div className="unidades-container">
+                    <h4>Calificaciones por Unidad</h4>
+                    <div className="unidades-grid">
+                      {materia.unidades.map((nota, idx) => (
+                        <div key={idx} className="unidad-item">
+                          <span>Unidad {idx + 1}</span>
+                          <span 
+                            className="unidad-nota"
+                            style={{ color: getColorCalificacion(nota) }}
+                          >
+                            {nota}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+          
+          <div className="boton-container">
+            <button onClick={() => window.history.back()} className="boton-regresar">
               ← Regresar
             </button>
           </div>
