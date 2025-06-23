@@ -1,5 +1,9 @@
 /* CardAlumno.css - Versión Compacta */
 
+:root {
+    --color-base: #199490;
+}
+
 .card-alumno {
     position: absolute;
     top: 70px;
@@ -7,12 +11,13 @@
     right: 20px;
     background: white;
     border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 10px rgba(123, 7, 7, 0.1);
     padding: 15px;
     width: 280px;
     font-family: 'Segoe UI', sans-serif;
     z-index: 1000;
     /* Asegura que esté por encima */
+    border: 1.5px solid var(--color-base);
 }
 
 .profile-header {
@@ -25,7 +30,7 @@
     height: 100px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #4CAF50;
+    border: 3px solid var(--color-base-2);
     margin-bottom: 8px;
 }
 
@@ -41,7 +46,7 @@
 }
 
 .info-section {
-    background: #000000;
+    background: var(--color-base);
     padding: 10px;
     border-radius: 8px;
 }
@@ -57,11 +62,11 @@
     background: #1e1e1e;
     color: white;
     border: none;
-    padding: 10px 7px;
+    padding: 15px 7px;
     border-radius: 5px;
     cursor: pointer;
-    width: 20%;
-    margin-top: 12px;
+    width: 55%;
+    margin-top: 15px;
     font-size: 0.9rem;
 }
 
