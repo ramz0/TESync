@@ -1,6 +1,6 @@
 import './LoginStyle.css';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'; 
 import { apiTesync } from '../../servicios/axios.js';
 
 import { faUser } from '@fortawesome/free-solid-svg-icons';
@@ -12,18 +12,30 @@ import teschaImage from '../../assets/tescha.jpg';
 export default function Login() {
   const [matricula, setMatricula] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate(); 
 
   const rutasApiTesync = {
     loginAlumno: 'http://localhost:3000/api/alumnos/login',
     loginProfesor: 'http://localhost:3000/api/maestros/login',
   }
 
-  const iniciarAlumno = async (e) => {
+  const iniciarSesion = async (e, tipoUsuario) => {
     e.preventDefault();
     try {
-      const response = await apiTesync.post(rutasApiTesync.loginAlumno, { matricula, password });
-      console.log("Respuesta del backend:", response.data);
+      const endpoint = tipoUsuario === 'alumno' 
+        ? rutasApiTesync.loginAlumno 
+        : rutasApiTesync.loginProfesor;
+      
+      const response = await apiTesync.post(endpoint, { matricula, password });
+      
+      if (response.data.success) {
+        navigate(`/${tipoUsuario.toLowerCase()}`); 
+      } else {
+        setError(response.data.message || 'Credenciales incorrectas');
+      }
     } catch (error) {
+      setError(error.response?.data?.message || 'Error al conectar con el servidor');
       console.error("Error:", error.response?.data);
     }
   };
@@ -33,26 +45,46 @@ export default function Login() {
       <div className='login-image-custom sombra'>
         <img className='img-decoration' src={teschaImage} alt="img-escuela" />
       </div>
-        <form data-aos="fade-left" onSubmit={iniciarAlumno} className='form-login flex-column'>
-          <h1 className='titulo-login'>Iniciar Sesión</h1>
-          <main className='flex-column contenido-login'>
-            <Input icono={faUser} tipo={"matricula"} textoInterno={"Usuario."} hacer={e => setMatricula(e.target.value)} />
-            <Input icono={faKey} tipo={"password"} textoInterno={"Contraseña."} hacer={e => setPassword(e.target.value)} />
-            
-            <Link type='submint' to="/profesor" className='boton-n2'>
-              Entrar Prof
-            </Link>
+      <form className='form-login flex-column'>
+        <h1 className='titulo-login'>Iniciar Sesión</h1>
+        {error && <div className="error-message">{error}</div>}
+        <main className='flex-column contenido-login'>
+          <Input 
+            icono={faUser} 
+            tipo={"matricula"} 
+            textoInterno={"Usuario"} 
+            hacer={e => setMatricula(e.target.value)} 
+          />
+          <Input 
+            icono={faKey} 
+            tipo={"password"} 
+            textoInterno={"Contraseña"} 
+            hacer={e => setPassword(e.target.value)} 
+          />
+          
+          <button 
+            className='boton-n2' 
+            onClick={(e) => iniciarSesion(e, 'profesor')}
+          >
+            Entrar Prof
+          </button>
 
-            <Link type='submint' to="/alumno" className='boton-n2'>
-              Entrar Alum
-            </Link>
+          <button 
+            className='boton-n2' 
+            onClick={(e) => iniciarSesion(e, 'alumno')}
+          >
+            Entrar Alum
+          </button>
 
-            <Link to="/Admin" className='boton-n2'>
-              Entrar Adm
-            </Link>
-          </main>
-          <footer className='footer-login'></footer>
-        </form>
+          <button 
+            className='boton-n2' 
+            onClick={(e) => iniciarSesion(e, 'admin')}
+          >
+            Entrar Adm
+          </button>
+        </main>
+        <footer className='footer-login'></footer>
+      </form>
     </div>
   );
 }
