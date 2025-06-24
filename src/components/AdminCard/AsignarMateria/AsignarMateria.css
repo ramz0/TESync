@@ -1,0 +1,91 @@
+/* Reutiliza muchos estilos de AdminGrupo.css */
+
+.alumnos-grid,
+.materias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.alumno-card,
+.materia-card {
+    padding: 12px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    color: var(--color-text);
+}
+
+.alumno-card:hover,
+.materia-card:hover {
+    background-color: rgba(25, 148, 144, 0.1);
+    border-color: var(--color-base);
+}
+
+.alumno-card.selected,
+.materia-card.selected {
+    background-color: var(--color-base);
+    color: var(--color-white);
+    border-color: var(--color-base);
+}
+
+.resumen-asignacion {
+    background-color: rgba(25, 148, 144, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    color: var(--color-text);
+    border: 1px dashed var(--color-base);
+}
+
+.resumen-asignacion h3 {
+    margin-top: 0;
+    color: var(--color-base-2);
+}
+
+.asignacion-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.tabla-asignaciones {
+    margin-top: 20px;
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--color-border);
+}
+
+.tabla-asignaciones h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--color-base-2);
+}
+
+.tabla-asignaciones table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-asignaciones th {
+    background-color: var(--color-base);
+    color: var(--color-white);
+    padding: 12px;
+    text-align: left;
+}
+
+.tabla-asignaciones td {
+    padding: 12px;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text);
+}
+
+.tabla-asignaciones tr:last-child td {
+    border-bottom: none;
+}

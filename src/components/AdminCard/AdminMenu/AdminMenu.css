@@ -1,0 +1,39 @@
+.menu-acciones {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.menu-acciones h2 {
+    font-size: 20px;
+    color: var(--color-base-2);
+    margin-bottom: 15px;
+}
+
+.botones-acciones {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.boton-accion {
+    padding: 12px 25px;
+    background-color: var(--color-base);
+    color: var(--color-white);
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 200px;
+}
+
+.boton-accion:hover {
+    background-color: #137a77;
+    transform: translateY(-2px);
+}
+
+.boton-accion.active {
+    background-color: var(--color-base-2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,71 @@
+.admin-select-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.admin-select {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background-color: var(--color-white);
+    color: var(--color-text);
+    transition: all 0.3s ease;
+}
+
+.admin-select:focus {
+    border-color: var(--color-base);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(25, 148, 144, 0.2);
+}
+
+.lista-profesores {
+    margin-top: 30px;
+    background-color: var(--color-light-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+}
+
+.lista-profesores h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: var(--color-base-2);
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 10px;
+}
+
+.item-profesor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background-color: var(--color-white);
+    border-radius: 6px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+}
+
+.item-profesor div {
+    flex-grow: 1;
+}
+
+.boton-eliminar {
+    background-color: var(--color-danger);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.boton-eliminar:hover {
+    background-color: #c82333;
+}
