@@ -1,12 +1,12 @@
-import './LoginStyle.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { apiTesync } from '../../servicios/axios.js';
+import './LoginStyle.css';
 
-import { faUser, faKey } from '@fortawesome/free-solid-svg-icons';
+import { faKey, faUser } from '@fortawesome/free-solid-svg-icons';
 
-import Input from '../../components/Input/Input';
 import teschaImage from '../../assets/tescha.jpg';
+import Input from '../../components/Input/Input';
 
 export default function Login() {
   const [usuario, setUsuario] = useState(''); // matrícula o cédula
@@ -26,6 +26,15 @@ export default function Login() {
       setError('Debes llenar los campos');
       return;
     }
+    
+// 🔒 Verificación de Admin (sin usar backend)
+  if (
+    usuario === import.meta.env.VITE_ADMIN_USER &&
+    password === import.meta.env.VITE_ADMIN_PASS
+  ) {
+    navigate('/admin'); // Redirige al panel de administración
+    return; // Sale de la función, ya no sigue con el login normal
+  }
 
     let endpoint = '';
     let payload = {};
