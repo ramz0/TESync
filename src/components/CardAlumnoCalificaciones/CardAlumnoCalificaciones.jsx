@@ -1,4 +1,4 @@
-import './CardAlumnoCalificacionesStyle.css'
+import './CardAlumnoCalificacionesStyle.css';
 
 const CardAlumnoCalificaciones = ({materia, verMaterias, estaExpandida}) => {
   const getColorCalificacion = (calificacion) => {
@@ -27,7 +27,7 @@ const CardAlumnoCalificaciones = ({materia, verMaterias, estaExpandida}) => {
       <div className="materia-info">
         <p><strong>Grupo:</strong> {materia.grupo}</p>
         <p><strong>Profesor:</strong> {materia.profesor}</p>
-        <p><strong>Horario:</strong> {materia.horario}</p>
+        {/*<p><strong>Horario:</strong> {materia.horario}</p>*/}
       </div>
       
       {estaExpandida && (
