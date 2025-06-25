@@ -26,10 +26,14 @@ export default function Login() {
       const endpoint = tipoUsuario === 'alumno' 
         ? rutasApiTesync.loginAlumno 
         : rutasApiTesync.loginProfesor;
-      
-      const response = await apiTesync.post(endpoint, { matricula, password });
-      
-      if (response.data.success) {
+      const response = await apiTesync.post(endpoint, {  matricula: matricula,
+        contraseña: password });
+
+      console.log(response)
+      console.log(response.data)
+      console.log(response.status)
+      console.log(response.status == 200)
+      if (response.status == 200) {
         navigate(`/${tipoUsuario.toLowerCase()}`); 
       } else {
         setError(response.data.message || 'Credenciales incorrectas');
