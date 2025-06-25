@@ -55,6 +55,7 @@ export default function Login() {
 
       if (response.status === 200) {
         if (tipoUsuario === 'alumno') {
+          localStorage.setItem('matricula', usuario);
           navigate('/alumno');
         } else if (tipoUsuario === 'profesor') {
           navigate('/profesor');
