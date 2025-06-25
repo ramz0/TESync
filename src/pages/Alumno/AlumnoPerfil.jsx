@@ -3,6 +3,8 @@ import CardAlumno from '../../components/CardAlumno/CardAlumno';
 import CardAlumnoCalificaciones from '../../components/CardAlumnoCalificaciones/CardAlumnoCalificaciones';
 import TopBar from '../../components/TopBar/TopBar';
 import './AlumnoPerfil.css';
+const matricula = localStorage.getItem('matricula');
+
 
 export default function AlumnoPerfil() {
   const [alumno, setAlumno] = useState(null);
@@ -14,8 +16,11 @@ export default function AlumnoPerfil() {
     if (!matricula) return;
 
     fetch(`http://localhost:3000/api/alumnos/${matricula}/materias`)
-      .then(res => res.json())
-      .then(data => setAlumno(data))
+    .then(res => res.json())
+    .then(data => {
+      console.log('Datos alumno:', data); // <-- Aquí chequea matrícula
+      setAlumno(data);
+    })
       .catch(err => console.error(err));
   }, []);
 
@@ -45,7 +50,7 @@ export default function AlumnoPerfil() {
             <h1 className="alumno-nombre">{alumno.nombre}</h1>
             <p className="alumno-datos">
               <span>Grupo: {alumno.grupo}</span>
-              {alumno.correo && <span>Correo: {alumno.correo}</span>}
+              <span>Matrícula: {alumno.matricula}</span>
             </p>
           </div>
         </div>
