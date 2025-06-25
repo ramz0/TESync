@@ -1,28 +1,44 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { apiTesync } from '../../../servicios/axios';
 import './AsignarGrupo.css';
 
-export default function AsignarGrupo({ alumnos, grupos, setMensajeConfirmacion }) {
+
+export default function AsignarGrupo({ grupos, setMensajeConfirmacion }) {
+  const [alumnos, setAlumnos] = useState([]);
   const [alumnoSeleccionado, setAlumnoSeleccionado] = useState('');
   const [semestreSeleccionado, setSemestreSeleccionado] = useState('');
   const [grupoSeleccionado, setGrupoSeleccionado] = useState('');
   const [asignacionesGrupo, setAsignacionesGrupo] = useState([]);
   const [mostrarAsignaciones, setMostrarAsignaciones] = useState(false);
 
-  const gruposFiltrados = semestreSeleccionado 
+  // Obtener alumnos desde backend
+  useEffect(() => {
+    const obtenerAlumnos = async () => {
+      try {
+        const res = await apiTesync.get('/usuarios/obtener-alumnos');
+        setAlumnos(res.data);
+      } catch (error) {
+        console.error('Error al obtener alumnos:', error);
+      }
+    };
+    obtenerAlumnos();
+  }, []);
+
+  const gruposFiltrados = semestreSeleccionado
     ? grupos.filter(grupo => grupo.semestre === Number(semestreSeleccionado))
     : [];
 
-  const manejarAsignacionGrupo = () => {
+  const manejarAsignacionGrupo = async () => {
     if (!alumnoSeleccionado || !grupoSeleccionado) {
       alert('Por favor selecciona un alumno y un grupo');
       return;
     }
 
-    const alumno = alumnos.find(a => a.id === Number(alumnoSeleccionado));
+    const alumno = alumnos.find(a => a._id === alumnoSeleccionado);
     const grupo = grupos.find(g => g.id === grupoSeleccionado);
 
     const yaAsignado = asignacionesGrupo.some(
-      asig => asig.alumnoId === alumno.id && asig.grupoId === grupo.id
+      asig => asig.alumnoId === alumno._id && asig.grupoId === grupo.id
     );
 
     if (yaAsignado) {
@@ -30,22 +46,33 @@ export default function AsignarGrupo({ alumnos, grupos, setMensajeConfirmacion }
       return;
     }
 
-    const nuevaAsignacion = {
-      id: Date.now(),
-      alumnoId: alumno.id,
-      alumnoNombre: alumno.nombre,
-      grupoId: grupo.id,
-      grupoNombre: grupo.nombre,
-      semestre: grupo.semestre
-    };
+    try {
+      await apiTesync.patch(`/usuarios/actualizar-grupo-alumno/${alumno.matricula}`, {
+  grupo: grupo.nombre
+});
 
-    setAsignacionesGrupo(prev => [...prev, nuevaAsignacion]);
-    setAlumnoSeleccionado('');
-    setGrupoSeleccionado('');
-    setSemestreSeleccionado('');
 
-    setMensajeConfirmacion(`✅ ${alumno.nombre} asignado a ${grupo.nombre} (Semestre ${grupo.semestre})`);
-    setTimeout(() => setMensajeConfirmacion(''), 3000);
+
+      const nuevaAsignacion = {
+        id: Date.now(),
+        alumnoId: alumno._id,
+        alumnoNombre: alumno.nombre,
+        grupoId: grupo.id,
+        grupoNombre: grupo.nombre,
+        semestre: grupo.semestre
+      };
+
+      setAsignacionesGrupo(prev => [...prev, nuevaAsignacion]);
+      setAlumnoSeleccionado('');
+      setGrupoSeleccionado('');
+      setSemestreSeleccionado('');
+
+      setMensajeConfirmacion(`✅ ${alumno.nombre} asignado a ${grupo.nombre} (Semestre ${grupo.semestre})`);
+      setTimeout(() => setMensajeConfirmacion(''), 3000);
+    } catch (err) {
+      console.error('Error al actualizar grupo:', err);
+      alert('❌ Error al asignar grupo. Intenta nuevamente.');
+    }
   };
 
   const eliminarAsignacion = (id) => {
@@ -60,16 +87,16 @@ export default function AsignarGrupo({ alumnos, grupos, setMensajeConfirmacion }
   return (
     <section className="admin-section">
       <h2>Asignar Grupo a Alumno</h2>
-      
+
       <div className="asignacion-container">
         <div className="lista-alumnos">
           <h3>Selecciona un Alumno</h3>
           <div className="alumnos-grid">
             {alumnos.map(alumno => (
-              <div 
-                key={alumno.id}
-                className={`alumno-card ${alumnoSeleccionado === alumno.id ? 'selected' : ''}`}
-                onClick={() => setAlumnoSeleccionado(alumno.id)}
+              <div
+                key={alumno._id}
+                className={`alumno-card ${alumnoSeleccionado === alumno._id ? 'selected' : ''}`}
+                onClick={() => setAlumnoSeleccionado(alumno._id)}
               >
                 {alumno.nombre}
               </div>
@@ -114,14 +141,14 @@ export default function AsignarGrupo({ alumnos, grupos, setMensajeConfirmacion }
       {alumnoSeleccionado && grupoSeleccionado && (
         <div className="resumen-asignacion">
           <h3>Resumen de Asignación</h3>
-          <p><strong>Alumno:</strong> {alumnos.find(a => a.id === Number(alumnoSeleccionado))?.nombre}</p>
+          <p><strong>Alumno:</strong> {alumnos.find(a => a._id === alumnoSeleccionado)?.nombre}</p>
           <p><strong>Grupo:</strong> {grupos.find(g => g.id === grupoSeleccionado)?.nombre} (Semestre {grupos.find(g => g.id === grupoSeleccionado)?.semestre})</p>
         </div>
       )}
 
       <div className="asignacion-actions">
-        <button 
-          className="admin-button" 
+        <button
+          className="admin-button"
           onClick={manejarAsignacionGrupo}
           disabled={!alumnoSeleccionado || !grupoSeleccionado}
         >
@@ -157,7 +184,7 @@ export default function AsignarGrupo({ alumnos, grupos, setMensajeConfirmacion }
                       <td>{asignacion.alumnoNombre}</td>
                       <td>{asignacion.grupoNombre}</td>
                       <td>
-                        <button 
+                        <button
                           className="boton-eliminar"
                           onClick={() => eliminarAsignacion(asignacion.id)}
                         >
